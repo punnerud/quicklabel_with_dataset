@@ -560,6 +560,75 @@ if __name__ == "__main__":
 
     args = make_parser().parse_args()
 
+    # Load projects and select project
+    import json
+    import os
+    projects_file = Path("data/projects.json")
+    if not projects_file.exists():
+        logger.error(f"❌ Projects file not found: {projects_file}")
+        logger.error("   Please create a project first using the web interface")
+        exit(1)
+
+    with open(projects_file) as f:
+        projects_data = json.load(f)
+
+    projects = projects_data.get('projects', [])
+    if not projects:
+        logger.error("❌ No projects found")
+        logger.error("   Please create a project first using the web interface")
+        exit(1)
+
+    # Check if project ID is provided via environment variable (from web interface)
+    env_project_id = os.environ.get('TRAINING_PROJECT_ID')
+
+    if env_project_id:
+        # Use project from environment variable
+        selected_project = next((p for p in projects if p['id'] == env_project_id), None)
+        if not selected_project:
+            logger.error(f"❌ Project with ID {env_project_id} not found")
+            exit(1)
+        logger.info(f"✅ Training project: {selected_project['name']}")
+    elif len(projects) > 1:
+        # If multiple projects, let user choose
+        logger.info("📁 Available projects:")
+        for i, proj in enumerate(projects):
+            logger.info(f"   {i+1}. {proj['name']} (ID: {proj['id']})")
+
+        while True:
+            try:
+                choice = input("\nSelect project number (or press Enter for active project): ").strip()
+                if not choice:
+                    # Use active project
+                    project_id = projects_data.get('active_project')
+                    if not project_id:
+                        logger.error("No active project set")
+                        continue
+                    selected_project = next((p for p in projects if p['id'] == project_id), None)
+                    if not selected_project:
+                        logger.error("Active project not found")
+                        continue
+                    break
+                else:
+                    choice_idx = int(choice) - 1
+                    if 0 <= choice_idx < len(projects):
+                        selected_project = projects[choice_idx]
+                        break
+                    else:
+                        logger.error(f"Invalid choice. Please enter 1-{len(projects)}")
+            except ValueError:
+                logger.error("Invalid input. Please enter a number")
+        logger.info(f"✅ Selected project: {selected_project['name']}")
+    else:
+        selected_project = projects[0]
+        logger.info(f"✅ Training project: {selected_project['name']}")
+
+    project_id = selected_project['id']
+
+    # Update paths to use project-specific directories
+    project_dir = Path("projects") / project_id
+    args.annotations = str(project_dir / "annotations.json")
+    args.output_dir = str(project_dir / "output")
+
     # Check annotations
     if not Path(args.annotations).exists():
         logger.error(f"❌ Annotations file not found: {args.annotations}")

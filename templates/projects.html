@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management - YOLO Annotator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: visible;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .header h1 {
+            font-size: 28px;
+        }
+
+        .back-btn {
+            background: #34495e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background: #4a5f7f;
+        }
+
+        .training-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 4px solid #5568d3;
+        }
+
+        .training-banner:hover {
+            background: linear-gradient(135deg, #5568d3 0%, #6a3d8f 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .training-banner-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .training-banner-icon {
+            font-size: 32px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .training-banner-text h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .training-banner-text p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .training-banner-arrow {
+            font-size: 24px;
+            opacity: 0.8;
+        }
+
+        .content {
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .project-card:hover {
+            border-color: #3498db;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .project-card.active {
+            border-color: #27ae60;
+            background: #e8f5e9;
+        }
+
+        .project-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .project-stats {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .project-stats strong {
+            color: #2c3e50;
+        }
+
+        .project-labels {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .project-labels-title {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .label-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .label-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .new-project-card {
+            border: 2px dashed #3498db;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            color: #3498db;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .new-project-card:hover {
+            background: #e3f2fd;
+            border-color: #2980b9;
+        }
+
+        .new-project-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.visible {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .labels-input-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 4px;
+            min-height: 100px;
+        }
+
+        .label-input-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .label-input-tag .remove-label {
+            cursor: pointer;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .add-label-input {
+            border: none;
+            outline: none;
+            padding: 6px;
+            flex: 1;
+            min-width: 120px;
+            font-size: 14px;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+
+        .active-badge {
+            background: #27ae60;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .project-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .project-card {
+            position: relative;
+        }
+
+        .action-menu-btn {
+            background: #f0f0f0;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .action-menu-btn:hover {
+            background: #e0e0e0;
+            transform: scale(1.1);
+        }
+
+        .action-menu {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 200px;
+            z-index: 100;
+        }
+
+        .action-menu.visible {
+            display: block;
+        }
+
+        .action-menu-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .action-menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .action-menu-item:hover {
+            background: #f5f5f5;
+        }
+
+        .action-menu-item.danger {
+            color: #e74c3c;
+        }
+
+        .action-menu-item.danger:hover {
+            background: #fee;
+        }
+
+        .rename-input {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .dropzone {
+            border: 3px dashed #3498db;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .dropzone:hover, .dropzone.dragover {
+            background: #e3f2fd;
+            border-color: #2980b9;
+        }
+
+        .dropzone-text {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .dropzone-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .image-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .image-preview-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .image-preview-item:hover {
+            border-color: #3498db;
+            transform: scale(1.05);
+        }
+
+        .image-preview-item.selected {
+            border-color: #e74c3c;
+            border-width: 3px;
+        }
+
+        .image-preview-item.range-start {
+            border-color: #3498db;
+            border-width: 3px;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        }
+
+        .image-preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-preview-checkbox {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .image-preview-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 10px;
+            padding: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .delete-selected-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .delete-selected-btn:hover {
+            background: #c0392b;
+        }
+
+        .delete-selected-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📁 Project Management</h1>
+            <a href="/" class="back-btn">← Back to Annotator</a>
+        </div>
+
+        {% if active_training %}
+        <div class="training-banner" onclick="window.location.href='/train/{{ active_training.project_id }}'">
+            <div class="training-banner-content">
+                <div class="training-banner-icon">🚀</div>
+                <div class="training-banner-text">
+                    <h3>Training in Progress</h3>
+                    <p>{{ active_training.project_name }} is currently training in background</p>
+                </div>
+            </div>
+            <div class="training-banner-arrow">→</div>
+        </div>
+        {% endif %}
+
+        <div class="content">
+            <h2>Your Projects</h2>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- New Project Modal -->
+    <div class="modal" id="newProjectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Project</h2>
+            </div>
+            <form id="newProjectForm" onsubmit="createProject(event)">
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" id="projectName" required placeholder="e.g., Traffic Signs Detection">
+                </div>
+
+                <div class="form-group">
+                    <label>Images</label>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: #666;">
+                            <input type="checkbox" id="importFromProjectToggle" onchange="toggleImportFromProject()">
+                            <span>Import images from another project</span>
+                        </label>
+                    </div>
+
+                    <div id="importFromProjectSection" style="display: none; margin-bottom: 15px;">
+                        <select id="importProjectSelect" class="form-group" style="width: 100%; padding: 10px; border: 2px solid #3498db; border-radius: 4px; font-size: 14px;" onchange="loadProjectImages()">
+                            <option value="">Select a project...</option>
+                        </select>
+
+                        <div id="importImagesPreview" style="display: none; margin-top: 15px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <h3 style="font-size: 14px; margin: 0; color: #2c3e50;">Select Images to Include (<span id="importSelectedCount">0</span> / <span id="importTotalCount">0</span>)</h3>
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px;">
+                                    <input type="checkbox" id="importRangeSelectToggle" checked onchange="toggleImportRangeSelect()">
+                                    <span>Range Select</span>
+                                </label>
+                            </div>
+                            <div class="image-preview-grid" id="importImagesGrid" style="max-height: 250px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+                        <div class="dropzone-icon">📁</div>
+                        <div class="dropzone-text">Drag & Drop images here or click to browse</div>
+                        <div style="font-size: 12px; color: #999;">Supports: JPG, JPEG, PNG, BMP</div>
+                    </div>
+                    <input type="file" id="fileInput" multiple accept="image/jpeg,image/jpg,image/png,image/bmp" style="display: none;" onchange="handleFileSelect(event)">
+
+                    <div id="imagePreviewContainer" style="display: none;">
+                        <button type="button" class="delete-selected-btn" id="deleteSelectedBtn" onclick="deleteSelectedImages()" disabled>
+                            🗑️ Delete Selected (<span id="selectedCount">0</span>)
+                        </button>
+                        <div class="image-preview-grid" id="imagePreviewGrid"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Labels (press Enter to add)</label>
+                    <div class="labels-input-container" id="labelsContainer" onclick="focusLabelInput()">
+                        <input type="text" class="add-label-input" id="labelInput" placeholder="Type label and press Enter" onkeydown="handleLabelInput(event)">
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let projects = [];
+        let currentLabels = [];
+        let activeProjectId = null;
+        let uploadedImages = [];
+        let selectedImages = new Set();
+
+        // Import state variables
+        window.importSelectedImages = new Set();
+        window.importRangeSelectMode = true;
+        window.importFirstRangeClick = null;
+        window.importAllImageNames = [];
+        window.importCurrentProjectId = null;
+
+        async function init() {
+            await loadProjects();
+            renderProjects();
+        }
+
+        async function loadProjects() {
+            try {
+                const res = await fetch('/api/projects');
+                const data = await res.json();
+                projects = data.projects || [];
+                activeProjectId = data.active_project || null;
+            } catch (error) {
+                console.error('Failed to load projects:', error);
+                projects = [];
+            }
+        }
+
+        function renderProjects() {
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = '';
+
+            // Add new project card
+            const newCard = document.createElement('div');
+            newCard.className = 'project-card new-project-card';
+            newCard.onclick = openNewProjectModal;
+            newCard.innerHTML = `
+                <div class="new-project-icon">+</div>
+                <div>New Project</div>
+            `;
+            grid.appendChild(newCard);
+
+            // Add existing projects
+            projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = `project-card ${project.id === activeProjectId ? 'active' : ''}`;
+
+                const sizeGB = project.size_bytes ? (project.size_bytes / (1024 * 1024 * 1024)).toFixed(2) : '0.00';
+
+                card.innerHTML = `
+                    <div class="project-actions">
+                        <button class="action-menu-btn" onclick="toggleActionMenu(event, '${project.id}')">⚙️</button>
+                        <div class="action-menu" id="menu-${project.id}">
+                            <div class="action-menu-item" onclick="manageImages(event, '${project.id}')">
+                                🖼️ Manage Images
+                            </div>
+                            <div class="action-menu-item" onclick="renameLabels(event, '${project.id}')">
+                                🏷️ Manage Labels
+                            </div>
+                            <div class="action-menu-item" onclick="window.location.href='/train/${project.id}'">
+                                🚀 Train Model
+                            </div>
+                            <div class="action-menu-item" onclick="exportAnnotations(event, '${project.id}')">
+                                📥 Export Annotations (JSON)
+                            </div>
+                            <div class="action-menu-item" onclick="exportModel(event, '${project.id}')">
+                                🤖 Export Best Model
+                            </div>
+                            <div class="action-menu-item danger" onclick="deleteProject(event, '${project.id}')">
+                                🗑️ Delete Project
+                            </div>
+                        </div>
+                    </div>
+                    <div onclick="selectProject('${project.id}')">
+                        <h3>
+                            ${project.name}
+                            ${project.id === activeProjectId ? '<span class="active-badge">ACTIVE</span>' : ''}
+                        </h3>
+                        <div class="project-stats">
+                            <div><strong>Total Images:</strong> ${project.total_images || 0}</div>
+                            <div><strong>Annotated:</strong> ${project.annotated_images || 0} images</div>
+                            <div><strong>Avg Annotations:</strong> ${project.avg_annotations_per_image || 0} per image</div>
+                            <div><strong>Size:</strong> ${sizeGB} GB</div>
+                        </div>
+                        <div class="project-labels">
+                            <div class="project-labels-title">Labels</div>
+                            <div class="label-tags">
+                                ${project.labels.map(label => `<span class="label-tag">${label}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openNewProjectModal() {
+            document.getElementById('newProjectModal').classList.add('visible');
+            currentLabels = [];
+            uploadedImages = [];
+            selectedImages.clear();
+            document.getElementById('projectName').value = '';
+            document.getElementById('labelInput').value = '';
+            document.getElementById('imagePreviewContainer').style.display = 'none';
+            document.getElementById('imagePreviewGrid').innerHTML = '';
+            document.getElementById('importFromProjectToggle').checked = false;
+            document.getElementById('importFromProjectSection').style.display = 'none';
+            document.getElementById('importImagesPreview').style.display = 'none';
+
+            // Reset import state
+            window.importSelectedImages = new Set();
+            window.importRangeSelectMode = true;
+            window.importFirstRangeClick = null;
+            window.importAllImageNames = [];
+
+            // Populate import project dropdown
+            const select = document.getElementById('importProjectSelect');
+            select.innerHTML = '<option value="">Select a project...</option>';
+            projects.forEach(project => {
+                const option = document.createElement('option');
+                option.value = project.id;
+                option.textContent = `${project.name} (${project.total_images || 0} images)`;
+                select.appendChild(option);
+            });
+
+            renderLabels();
+            setupDropzone();
+        }
+
+        function toggleImportFromProject() {
+            const isChecked = document.getElementById('importFromProjectToggle').checked;
+            document.getElementById('importFromProjectSection').style.display = isChecked ? 'block' : 'none';
+            if (!isChecked) {
+                document.getElementById('importImagesPreview').style.display = 'none';
+                // Remove all imported images when unchecking
+                if (window.importCurrentProjectId) {
+                    uploadedImages = uploadedImages.filter(img => !img._fromProject);
+                    renderImagePreviews();
+                    window.importCurrentProjectId = null;
+                    window.importSelectedImages.clear();
+                }
+            }
+        }
+
+        async function loadProjectImages() {
+            const selectedProjectId = document.getElementById('importProjectSelect').value;
+
+            if (!selectedProjectId) {
+                document.getElementById('importImagesPreview').style.display = 'none';
+                // Remove all imported images if user deselects project
+                if (window.importCurrentProjectId) {
+                    uploadedImages = uploadedImages.filter(img => !img._fromProject);
+                    renderImagePreviews();
+                    window.importCurrentProjectId = null;
+                }
+                return;
+            }
+
+            try {
+                const res = await fetch(`/api/projects/${selectedProjectId}/images`);
+                const data = await res.json();
+
+                if (data.status !== 'success') {
+                    alert('Failed to load images from project');
+                    return;
+                }
+
+                const images = data.images || [];
+
+                if (images.length === 0) {
+                    alert('Selected project has no images');
+                    return;
+                }
+
+                // Remove images from previous project if switching projects
+                if (window.importCurrentProjectId && window.importCurrentProjectId !== selectedProjectId) {
+                    uploadedImages = uploadedImages.filter(img => !img._fromProject);
+                    renderImagePreviews();
+                }
+
+                // Store for range select
+                window.importAllImageNames = images;
+                window.importSelectedImages = new Set();
+                window.importFirstRangeClick = null;
+                window.importCurrentProjectId = selectedProjectId;
+                // Ensure range select mode is synced with checkbox state
+                window.importRangeSelectMode = document.getElementById('importRangeSelectToggle').checked;
+
+                console.log('Loaded project images. Range select mode:', window.importRangeSelectMode);
+
+                // Render images
+                const grid = document.getElementById('importImagesGrid');
+                grid.innerHTML = '';
+
+                images.forEach((img, idx) => {
+                    const div = document.createElement('div');
+                    div.className = 'image-preview-item';
+                    div.dataset.imageName = img;
+                    div.dataset.index = idx;
+                    div.onclick = () => handleImportImageClick(img, idx);
+                    div.innerHTML = `
+                        <input type="checkbox" class="image-preview-checkbox" onclick="event.stopPropagation();" onchange="toggleImportImageSelection('${img}')">
+                        <img src="/projects/${selectedProjectId}/input/${img}" alt="${img}">
+                        <div class="image-preview-name">${img}</div>
+                    `;
+                    grid.appendChild(div);
+                });
+
+                document.getElementById('importTotalCount').textContent = images.length;
+                document.getElementById('importImagesPreview').style.display = 'block';
+                updateImportSelectionUI();
+
+            } catch (error) {
+                console.error('Failed to load images:', error);
+                alert('Failed to load images');
+            }
+        }
+
+        function toggleImportRangeSelect() {
+            window.importRangeSelectMode = document.getElementById('importRangeSelectToggle').checked;
+            window.importFirstRangeClick = null;
+            console.log('Range select mode toggled to:', window.importRangeSelectMode);
+            updateImportSelectionUI();
+        }
+
+        function toggleImportImageSelection(imageName) {
+            if (window.importSelectedImages.has(imageName)) {
+                window.importSelectedImages.delete(imageName);
+            } else {
+                window.importSelectedImages.add(imageName);
+            }
+            updateImportSelectionUI();
+        }
+
+        function handleImportImageClick(imageName, index) {
+            console.log('Import click:', imageName, index, 'Range mode:', window.importRangeSelectMode);
+
+            if (!window.importRangeSelectMode) {
+                toggleImportImageSelection(imageName);
+                return;
+            }
+
+            // Range select mode
+            if (window.importFirstRangeClick === null) {
+                console.log('First click - setting range start to', index);
+                window.importFirstRangeClick = index;
+                if (!window.importSelectedImages.has(imageName)) {
+                    window.importSelectedImages.add(imageName);
+                }
+            } else if (window.importFirstRangeClick === index) {
+                console.log('Same image clicked - deselecting and resetting');
+                window.importSelectedImages.delete(imageName);
+                window.importFirstRangeClick = null;
+            } else {
+                console.log('Range selection from', window.importFirstRangeClick, 'to', index);
+                const start = Math.min(window.importFirstRangeClick, index);
+                const end = Math.max(window.importFirstRangeClick, index);
+                const firstImageName = window.importAllImageNames[window.importFirstRangeClick];
+                const shouldSelect = window.importSelectedImages.has(firstImageName);
+
+                console.log('Selecting range:', start, '-', end, 'shouldSelect:', shouldSelect);
+
+                for (let i = start; i <= end; i++) {
+                    const imgName = window.importAllImageNames[i];
+                    if (shouldSelect) {
+                        window.importSelectedImages.add(imgName);
+                    } else {
+                        window.importSelectedImages.delete(imgName);
+                    }
+                }
+
+                window.importFirstRangeClick = null;
+            }
+
+            updateImportSelectionUI();
+        }
+
+        function updateImportSelectionUI() {
+            const items = document.querySelectorAll('#importImagesGrid .image-preview-item');
+            items.forEach(item => {
+                const checkbox = item.querySelector('.image-preview-checkbox');
+                const itemIndex = parseInt(item.dataset.index);
+
+                item.classList.remove('range-start');
+
+                if (window.importRangeSelectMode && window.importFirstRangeClick !== null && itemIndex === window.importFirstRangeClick) {
+                    item.classList.add('range-start');
+                }
+
+                if (window.importSelectedImages.has(item.dataset.imageName)) {
+                    item.classList.add('selected');
+                    if (checkbox) checkbox.checked = true;
+                } else {
+                    item.classList.remove('selected');
+                    if (checkbox) checkbox.checked = false;
+                }
+            });
+
+            const count = window.importSelectedImages.size;
+            document.getElementById('importSelectedCount').textContent = count;
+        }
+
+        function setupDropzone() {
+            const dropzone = document.getElementById('dropzone');
+
+            // Prevent default drag behaviors
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropzone.addEventListener(eventName, preventDefaults, false);
+                document.body.addEventListener(eventName, preventDefaults, false);
+            });
+
+            // Highlight drop zone when item is dragged over it
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropzone.addEventListener(eventName, () => {
+                    dropzone.classList.add('dragover');
+                }, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropzone.addEventListener(eventName, () => {
+                    dropzone.classList.remove('dragover');
+                }, false);
+            });
+
+            // Handle dropped files
+            dropzone.addEventListener('drop', handleDrop, false);
+        }
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles(files);
+        }
+
+        function handleFileSelect(e) {
+            const files = e.target.files;
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            const imageFiles = [...files].filter(file =>
+                file.type.match('image/(jpeg|jpg|png|bmp)')
+            );
+
+            if (imageFiles.length === 0) {
+                alert('Please select valid image files (JPG, PNG, BMP)');
+                return;
+            }
+
+            imageFiles.forEach(file => {
+                // Check if already added
+                if (!uploadedImages.some(img => img.name === file.name)) {
+                    uploadedImages.push(file);
+                }
+            });
+
+            renderImagePreviews();
+        }
+
+        function renderImagePreviews() {
+            const container = document.getElementById('imagePreviewContainer');
+            const grid = document.getElementById('imagePreviewGrid');
+
+            if (uploadedImages.length === 0) {
+                container.style.display = 'none';
+                return;
+            }
+
+            container.style.display = 'block';
+            grid.innerHTML = '';
+
+            uploadedImages.forEach((file, index) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const div = document.createElement('div');
+                    div.className = 'image-preview-item';
+                    div.dataset.index = index;
+                    div.innerHTML = `
+                        <input type="checkbox" class="image-preview-checkbox" onchange="toggleImageSelection(${index})" ${selectedImages.has(index) ? 'checked' : ''}>
+                        <img src="${e.target.result}" alt="${file.name}">
+                        <div class="image-preview-name">${file.name}</div>
+                    `;
+
+                    if (selectedImages.has(index)) {
+                        div.classList.add('selected');
+                    }
+
+                    grid.appendChild(div);
+                };
+                reader.readAsDataURL(file);
+            });
+
+            updateSelectedCount();
+        }
+
+        function toggleImageSelection(index) {
+            if (selectedImages.has(index)) {
+                selectedImages.delete(index);
+            } else {
+                selectedImages.add(index);
+            }
+
+            // Update UI
+            const items = document.querySelectorAll('.image-preview-item');
+            items.forEach(item => {
+                const itemIndex = parseInt(item.dataset.index);
+                if (selectedImages.has(itemIndex)) {
+                    item.classList.add('selected');
+                } else {
+                    item.classList.remove('selected');
+                }
+            });
+
+            updateSelectedCount();
+        }
+
+        function updateSelectedCount() {
+            const count = selectedImages.size;
+            document.getElementById('selectedCount').textContent = count;
+            document.getElementById('deleteSelectedBtn').disabled = count === 0;
+        }
+
+        function deleteSelectedImages() {
+            if (selectedImages.size === 0) return;
+
+            const confirmed = confirm(`Delete ${selectedImages.size} selected image(s)?`);
+            if (!confirmed) return;
+
+            // Remove selected images (in reverse order to maintain indices)
+            const indicesToRemove = Array.from(selectedImages).sort((a, b) => b - a);
+            indicesToRemove.forEach(index => {
+                uploadedImages.splice(index, 1);
+            });
+
+            selectedImages.clear();
+            renderImagePreviews();
+        }
+
+        function closeModal() {
+            document.getElementById('newProjectModal').classList.remove('visible');
+        }
+
+        function focusLabelInput() {
+            document.getElementById('labelInput').focus();
+        }
+
+        function handleLabelInput(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const input = document.getElementById('labelInput');
+                const label = input.value.trim();
+
+                if (label && !currentLabels.includes(label)) {
+                    currentLabels.push(label);
+                    input.value = '';
+                    renderLabels();
+                }
+            }
+        }
+
+        function removeLabel(label) {
+            currentLabels = currentLabels.filter(l => l !== label);
+            renderLabels();
+        }
+
+        function renderLabels() {
+            const container = document.getElementById('labelsContainer');
+            const input = document.getElementById('labelInput');
+
+            // Remove all label tags
+            container.querySelectorAll('.label-input-tag').forEach(tag => tag.remove());
+
+            // Add current labels
+            currentLabels.forEach(label => {
+                const tag = document.createElement('div');
+                tag.className = 'label-input-tag';
+                tag.innerHTML = `
+                    ${label}
+                    <span class="remove-label" onclick="removeLabel('${label}')">×</span>
+                `;
+                container.insertBefore(tag, input);
+            });
+        }
+
+        async function createProject(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('projectName').value.trim();
+
+            if (!name) {
+                alert('Please enter a project name');
+                return;
+            }
+
+            if (currentLabels.length === 0) {
+                alert('Please add at least one label');
+                return;
+            }
+
+            try {
+                // First, download imported images if any
+                const allImages = [...uploadedImages]; // Start with uploaded images
+
+                if (window.importSelectedImages.size > 0 && window.importCurrentProjectId) {
+                    const selectedImageNames = Array.from(window.importSelectedImages);
+
+                    for (const imageName of selectedImageNames) {
+                        try {
+                            const imageRes = await fetch(`/projects/${window.importCurrentProjectId}/input/${imageName}`);
+                            const blob = await imageRes.blob();
+                            const file = new File([blob], imageName, { type: blob.type });
+                            allImages.push(file);
+                        } catch (error) {
+                            console.error(`Failed to fetch image: ${imageName}`, error);
+                        }
+                    }
+                }
+
+                // Create project first
+                const res = await fetch('/api/projects', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        name: name,
+                        labels: currentLabels
+                    })
+                });
+
+                const data = await res.json();
+
+                if (data.status !== 'success') {
+                    alert('Failed to create project: ' + (data.message || 'Unknown error'));
+                    return;
+                }
+
+                const projectId = data.project.id;
+
+                // Upload all images (both uploaded and imported)
+                if (allImages.length > 0) {
+                    const formData = new FormData();
+                    allImages.forEach(file => {
+                        formData.append('images', file);
+                    });
+
+                    const uploadRes = await fetch(`/api/projects/${projectId}/upload-images`, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const uploadData = await uploadRes.json();
+
+                    if (uploadData.status !== 'success') {
+                        alert('Project created but failed to upload images: ' + (uploadData.message || 'Unknown error'));
+                    }
+                }
+
+                closeModal();
+                await loadProjects();
+                renderProjects();
+                alert(`Project "${name}" created successfully with ${allImages.length} image(s)!`);
+
+            } catch (error) {
+                console.error('Failed to create project:', error);
+                alert('Failed to create project');
+            }
+        }
+
+        async function selectProject(projectId) {
+            try {
+                const res = await fetch('/api/projects/active', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({project_id: projectId})
+                });
+
+                const data = await res.json();
+
+                if (data.status === 'success') {
+                    activeProjectId = projectId;
+                    renderProjects();
+                    // Redirect to annotator
+                    window.location.href = '/';
+                } else {
+                    alert('Failed to activate project');
+                }
+            } catch (error) {
+                console.error('Failed to activate project:', error);
+                alert('Failed to activate project');
+            }
+        }
+
+        function toggleActionMenu(event, projectId) {
+            event.stopPropagation();
+            const menu = document.getElementById(`menu-${projectId}`);
+
+            // Close all other menus
+            document.querySelectorAll('.action-menu').forEach(m => {
+                if (m.id !== `menu-${projectId}`) {
+                    m.classList.remove('visible');
+                }
+            });
+
+            menu.classList.toggle('visible');
+        }
+
+        async function manageImages(event, projectId) {
+            event.stopPropagation();
+            const project = projects.find(p => p.id === projectId);
+            if (!project) return;
+
+            // Close menu
+            document.getElementById(`menu-${projectId}`).classList.remove('visible');
+
+            // Fetch current images
+            try {
+                const res = await fetch(`/api/projects/${projectId}/images`);
+                const data = await res.json();
+
+                if (data.status !== 'success') {
+                    alert('Failed to load images');
+                    return;
+                }
+
+                const currentImages = data.images || [];
+
+                // Create modal content for managing images
+                const modal = document.getElementById('newProjectModal');
+                const modalContent = modal.querySelector('.modal-content');
+
+                modalContent.innerHTML = `
+                    <div class="modal-header">
+                        <h2>Manage Images - ${project.name}</h2>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="font-size: 16px; margin-bottom: 10px; color: #2c3e50;">Add Images</h3>
+
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; color: #666;">
+                                <input type="checkbox" id="manageImportFromProjectToggle" onchange="toggleManageImportFromProject()">
+                                <span>Import images from another project</span>
+                            </label>
+                        </div>
+
+                        <div id="manageImportFromProjectSection" style="display: none; margin-bottom: 15px;">
+                            <select id="manageImportProjectSelect" class="form-group" style="width: 100%; padding: 10px; border: 2px solid #3498db; border-radius: 4px; font-size: 14px;" onchange="loadManageProjectImages('${projectId}')">
+                                <option value="">Select a project...</option>
+                            </select>
+
+                            <div id="manageImportImagesPreview" style="display: none; margin-top: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <h3 style="font-size: 14px; margin: 0; color: #2c3e50;">Select Images to Import (<span id="manageImportSelectedCount">0</span> / <span id="manageImportTotalCount">0</span>)</h3>
+                                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px;">
+                                        <input type="checkbox" id="manageImportRangeSelectToggle" checked onchange="toggleManageImportRangeSelect()">
+                                        <span>Range Select</span>
+                                    </label>
+                                </div>
+                                <div class="image-preview-grid" id="manageImportImagesGrid" style="max-height: 250px;"></div>
+                            </div>
+                        </div>
+
+                        <div class="dropzone" id="manageDropzone" onclick="document.getElementById('manageFileInput').click()">
+                            <div class="dropzone-icon">📁</div>
+                            <div class="dropzone-text">Drag & Drop images here or click to browse</div>
+                            <div style="font-size: 12px; color: #999;">Supports: JPG, JPEG, PNG, BMP</div>
+                        </div>
+                        <input type="file" id="manageFileInput" multiple accept="image/jpeg,image/jpg,image/png,image/bmp" style="display: none;">
+                    </div>
+
+                    <div id="manageNewImagesContainer" style="display: none; margin-bottom: 20px;">
+                        <h3 style="font-size: 16px; margin-bottom: 15px; color: #2c3e50;">New Images to Upload (<span id="newImagesCount">0</span>)</h3>
+                        <div class="image-preview-grid" id="manageNewImagesGrid" style="max-height: 300px;"></div>
+                    </div>
+
+                    <div style="border-top: 1px solid #e0e0e0; padding-top: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 style="font-size: 16px; margin: 0; color: #2c3e50;">Existing Images (${currentImages.length})</h3>
+                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px;">
+                                <input type="checkbox" id="rangeSelectToggle" checked onchange="toggleRangeSelect()">
+                                <span>Range Select Mode</span>
+                            </label>
+                        </div>
+                        <div class="image-preview-grid" id="manageExistingImagesGrid" style="max-height: 400px;">
+                            ${currentImages.map((img, idx) => `
+                                <div class="image-preview-item" data-image-name="${img}" data-index="${idx}" onclick="handleImageClick('${img}', ${idx})">
+                                    <input type="checkbox" class="image-preview-checkbox" onclick="event.stopPropagation();" onchange="toggleExistingImageSelection('${img}')">
+                                    <img src="/projects/${projectId}/input/${img}" alt="${img}">
+                                    <div class="image-preview-name">${img}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="modal-actions" style="margin-top: 20px;">
+                        <button type="button" class="delete-selected-btn" id="manageDeleteSelectedBtn" onclick="deleteSelectedProjectImages('${projectId}')" disabled style="margin-right: auto;">
+                            🗑️ Delete Selected (<span id="manageSelectedCount">0</span>)
+                        </button>
+                        <button type="button" class="btn btn-primary" id="manageAddImagesBtn" onclick="uploadNewImagesToProject('${projectId}')" disabled style="display: none;">
+                            ➕ Add <span id="manageTotalAddCount">0</span> Image(s)
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="closeManageModal()">Close</button>
+                    </div>
+                `;
+
+                modal.classList.add('visible');
+
+                // Setup dropzone for new images
+                window.manageUploadedImages = [];
+                window.manageSelectedExistingImages = new Set();
+                window.rangeSelectMode = true;
+                window.firstRangeClick = null;
+                window.allImageNames = currentImages;
+                window.manageCurrentProjectId = projectId;
+
+                // Setup import state
+                window.manageImportSelectedImages = new Set();
+                window.manageImportRangeSelectMode = true;
+                window.manageImportFirstRangeClick = null;
+                window.manageImportAllImageNames = [];
+                window.manageImportSourceProjectId = null;
+
+                // Populate import project dropdown
+                const select = document.getElementById('manageImportProjectSelect');
+                select.innerHTML = '<option value="">Select a project...</option>';
+                projects.forEach(p => {
+                    if (p.id !== projectId) { // Don't allow importing from same project
+                        const option = document.createElement('option');
+                        option.value = p.id;
+                        option.textContent = `${p.name} (${p.total_images || 0} images)`;
+                        select.appendChild(option);
+                    }
+                });
+
+                setupManageDropzone();
+
+            } catch (error) {
+                console.error('Failed to load images:', error);
+                alert('Failed to load images');
+            }
+        }
+
+        function setupManageDropzone() {
+            const dropzone = document.getElementById('manageDropzone');
+            const fileInput = document.getElementById('manageFileInput');
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropzone.addEventListener(eventName, preventDefaults, false);
+            });
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropzone.addEventListener(eventName, () => {
+                    dropzone.classList.add('dragover');
+                }, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropzone.addEventListener(eventName, () => {
+                    dropzone.classList.remove('dragover');
+                }, false);
+            });
+
+            dropzone.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                handleManageFiles(files);
+            }, false);
+
+            fileInput.addEventListener('change', (e) => {
+                handleManageFiles(e.target.files);
+            });
+        }
+
+        function handleManageFiles(files) {
+            const imageFiles = [...files].filter(file =>
+                file.type.match('image/(jpeg|jpg|png|bmp)')
+            );
+
+            if (imageFiles.length === 0) {
+                alert('Please select valid image files (JPG, PNG, BMP)');
+                return;
+            }
+
+            imageFiles.forEach(file => {
+                if (!window.manageUploadedImages.some(img => img.name === file.name)) {
+                    window.manageUploadedImages.push(file);
+                }
+            });
+
+            renderManageNewImages();
+        }
+
+        function renderManageNewImages() {
+            const container = document.getElementById('manageNewImagesContainer');
+            const grid = document.getElementById('manageNewImagesGrid');
+            const count = window.manageUploadedImages.length;
+
+            if (count === 0) {
+                container.style.display = 'none';
+            } else {
+                container.style.display = 'block';
+                grid.innerHTML = '';
+
+                // Update counts
+                document.getElementById('newImagesCount').textContent = count;
+
+                window.manageUploadedImages.forEach((file, index) => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const div = document.createElement('div');
+                        div.className = 'image-preview-item';
+                        div.innerHTML = `
+                            <img src="${e.target.result}" alt="${file.name}">
+                            <div class="image-preview-name">${file.name}</div>
+                        `;
+                        grid.appendChild(div);
+                    };
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            updateManageAddButton();
+        }
+
+        function toggleManageImportFromProject() {
+            const isChecked = document.getElementById('manageImportFromProjectToggle').checked;
+            document.getElementById('manageImportFromProjectSection').style.display = isChecked ? 'block' : 'none';
+            if (!isChecked) {
+                document.getElementById('manageImportImagesPreview').style.display = 'none';
+                window.manageImportSelectedImages.clear();
+                window.manageImportSourceProjectId = null;
+            }
+        }
+
+        async function loadManageProjectImages(currentProjectId) {
+            const selectedProjectId = document.getElementById('manageImportProjectSelect').value;
+
+            if (!selectedProjectId) {
+                document.getElementById('manageImportImagesPreview').style.display = 'none';
+                window.manageImportSelectedImages.clear();
+                window.manageImportSourceProjectId = null;
+                return;
+            }
+
+            try {
+                const res = await fetch(`/api/projects/${selectedProjectId}/images`);
+                const data = await res.json();
+
+                if (data.status !== 'success') {
+                    alert('Failed to load images from project');
+                    return;
+                }
+
+                const images = data.images || [];
+
+                if (images.length === 0) {
+                    alert('Selected project has no images');
+                    return;
+                }
+
+                // Store for range select
+                window.manageImportAllImageNames = images;
+                window.manageImportSelectedImages = new Set();
+                window.manageImportFirstRangeClick = null;
+                window.manageImportSourceProjectId = selectedProjectId;
+                window.manageImportRangeSelectMode = document.getElementById('manageImportRangeSelectToggle').checked;
+
+                console.log('Loaded manage import images. Range select mode:', window.manageImportRangeSelectMode);
+
+                // Render images
+                const grid = document.getElementById('manageImportImagesGrid');
+                grid.innerHTML = '';
+
+                images.forEach((img, idx) => {
+                    const div = document.createElement('div');
+                    div.className = 'image-preview-item';
+                    div.dataset.imageName = img;
+                    div.dataset.index = idx;
+                    div.onclick = () => handleManageImportImageClick(img, idx);
+                    div.innerHTML = `
+                        <input type="checkbox" class="image-preview-checkbox" onclick="event.stopPropagation();" onchange="toggleManageImportImageSelection('${img}')">
+                        <img src="/projects/${selectedProjectId}/input/${img}" alt="${img}">
+                        <div class="image-preview-name">${img}</div>
+                    `;
+                    grid.appendChild(div);
+                });
+
+                document.getElementById('manageImportTotalCount').textContent = images.length;
+                document.getElementById('manageImportImagesPreview').style.display = 'block';
+                updateManageImportSelectionUI();
+
+            } catch (error) {
+                console.error('Failed to load images:', error);
+                alert('Failed to load images');
+            }
+        }
+
+        function toggleManageImportRangeSelect() {
+            window.manageImportRangeSelectMode = document.getElementById('manageImportRangeSelectToggle').checked;
+            window.manageImportFirstRangeClick = null;
+            console.log('Manage import range select mode toggled to:', window.manageImportRangeSelectMode);
+            updateManageImportSelectionUI();
+        }
+
+        function toggleManageImportImageSelection(imageName) {
+            if (window.manageImportSelectedImages.has(imageName)) {
+                window.manageImportSelectedImages.delete(imageName);
+            } else {
+                window.manageImportSelectedImages.add(imageName);
+            }
+            updateManageImportSelectionUI();
+        }
+
+        function handleManageImportImageClick(imageName, index) {
+            console.log('Manage import click:', imageName, index, 'Range mode:', window.manageImportRangeSelectMode);
+
+            if (!window.manageImportRangeSelectMode) {
+                toggleManageImportImageSelection(imageName);
+                return;
+            }
+
+            // Range select mode
+            if (window.manageImportFirstRangeClick === null) {
+                console.log('First click - setting range start to', index);
+                window.manageImportFirstRangeClick = index;
+                if (!window.manageImportSelectedImages.has(imageName)) {
+                    window.manageImportSelectedImages.add(imageName);
+                }
+            } else if (window.manageImportFirstRangeClick === index) {
+                console.log('Same image clicked - deselecting and resetting');
+                window.manageImportSelectedImages.delete(imageName);
+                window.manageImportFirstRangeClick = null;
+            } else {
+                console.log('Range selection from', window.manageImportFirstRangeClick, 'to', index);
+                const start = Math.min(window.manageImportFirstRangeClick, index);
+                const end = Math.max(window.manageImportFirstRangeClick, index);
+                const firstImageName = window.manageImportAllImageNames[window.manageImportFirstRangeClick];
+                const shouldSelect = window.manageImportSelectedImages.has(firstImageName);
+
+                console.log('Selecting range:', start, '-', end, 'shouldSelect:', shouldSelect);
+
+                for (let i = start; i <= end; i++) {
+                    const imgName = window.manageImportAllImageNames[i];
+                    if (shouldSelect) {
+                        window.manageImportSelectedImages.add(imgName);
+                    } else {
+                        window.manageImportSelectedImages.delete(imgName);
+                    }
+                }
+
+                window.manageImportFirstRangeClick = null;
+            }
+
+            updateManageImportSelectionUI();
+        }
+
+        function updateManageImportSelectionUI() {
+            const items = document.querySelectorAll('#manageImportImagesGrid .image-preview-item');
+            items.forEach(item => {
+                const checkbox = item.querySelector('.image-preview-checkbox');
+                const itemIndex = parseInt(item.dataset.index);
+
+                item.classList.remove('range-start');
+
+                if (window.manageImportRangeSelectMode && window.manageImportFirstRangeClick !== null && itemIndex === window.manageImportFirstRangeClick) {
+                    item.classList.add('range-start');
+                }
+
+                if (window.manageImportSelectedImages.has(item.dataset.imageName)) {
+                    item.classList.add('selected');
+                    if (checkbox) checkbox.checked = true;
+                } else {
+                    item.classList.remove('selected');
+                    if (checkbox) checkbox.checked = false;
+                }
+            });
+
+            const count = window.manageImportSelectedImages.size;
+            document.getElementById('manageImportSelectedCount').textContent = count;
+            updateManageAddButton();
+        }
+
+        function updateManageAddButton() {
+            const importCount = window.manageImportSelectedImages ? window.manageImportSelectedImages.size : 0;
+            const uploadCount = window.manageUploadedImages ? window.manageUploadedImages.length : 0;
+            const totalCount = importCount + uploadCount;
+
+            const addBtn = document.getElementById('manageAddImagesBtn');
+            if (addBtn) {
+                document.getElementById('manageTotalAddCount').textContent = totalCount;
+                if (totalCount > 0) {
+                    addBtn.style.display = 'inline-block';
+                    addBtn.disabled = false;
+                } else {
+                    addBtn.style.display = 'none';
+                    addBtn.disabled = true;
+                }
+            }
+        }
+
+        async function uploadNewImagesToProject(projectId) {
+            if (window.manageUploadedImages.length === 0 && window.manageImportSelectedImages.size === 0) {
+                alert('No images to upload');
+                return;
+            }
+
+            try {
+                // First, download imported images if any
+                const allImages = [...window.manageUploadedImages];
+
+                if (window.manageImportSelectedImages.size > 0 && window.manageImportSourceProjectId) {
+                    const selectedImageNames = Array.from(window.manageImportSelectedImages);
+
+                    for (const imageName of selectedImageNames) {
+                        try {
+                            const imageRes = await fetch(`/projects/${window.manageImportSourceProjectId}/input/${imageName}`);
+                            const blob = await imageRes.blob();
+                            const file = new File([blob], imageName, { type: blob.type });
+                            allImages.push(file);
+                        } catch (error) {
+                            console.error(`Failed to fetch image: ${imageName}`, error);
+                        }
+                    }
+                }
+
+                if (allImages.length === 0) {
+                    alert('No images to upload');
+                    return;
+                }
+
+                const formData = new FormData();
+                allImages.forEach(file => {
+                    formData.append('images', file);
+                });
+
+                const res = await fetch(`/api/projects/${projectId}/upload-images`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await res.json();
+
+                if (data.status === 'success') {
+                    alert(`Successfully uploaded ${data.uploaded} image(s)!`);
+                    window.manageUploadedImages = [];
+                    window.manageImportSelectedImages.clear();
+                    // Refresh the manage images view
+                    closeManageModal();
+                    const event = new Event('click');
+                    manageImages(event, projectId);
+                } else {
+                    alert('Failed to upload images: ' + (data.message || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Failed to upload images:', error);
+                alert('Failed to upload images');
+            }
+        }
+
+        function toggleExistingImageSelection(imageName) {
+            if (window.manageSelectedExistingImages.has(imageName)) {
+                window.manageSelectedExistingImages.delete(imageName);
+            } else {
+                window.manageSelectedExistingImages.add(imageName);
+            }
+
+            updateImageSelectionUI();
+        }
+
+        function updateImageSelectionUI() {
+            // Update UI
+            const items = document.querySelectorAll('#manageExistingImagesGrid .image-preview-item');
+            items.forEach(item => {
+                const checkbox = item.querySelector('.image-preview-checkbox');
+                const itemIndex = parseInt(item.dataset.index);
+
+                // Remove range-start class from all
+                item.classList.remove('range-start');
+
+                // Check if this is the range start
+                if (window.rangeSelectMode && window.firstRangeClick !== null && itemIndex === window.firstRangeClick) {
+                    item.classList.add('range-start');
+                }
+
+                // Update selection state
+                if (window.manageSelectedExistingImages.has(item.dataset.imageName)) {
+                    item.classList.add('selected');
+                    if (checkbox) checkbox.checked = true;
+                } else {
+                    item.classList.remove('selected');
+                    if (checkbox) checkbox.checked = false;
+                }
+            });
+
+            const count = window.manageSelectedExistingImages.size;
+            document.getElementById('manageSelectedCount').textContent = count;
+            document.getElementById('manageDeleteSelectedBtn').disabled = count === 0;
+        }
+
+        function toggleRangeSelect() {
+            window.rangeSelectMode = document.getElementById('rangeSelectToggle').checked;
+            window.firstRangeClick = null; // Reset range selection
+        }
+
+        function handleImageClick(imageName, index) {
+            if (!window.rangeSelectMode) {
+                // Simple toggle mode
+                toggleExistingImageSelection(imageName);
+                return;
+            }
+
+            // Range select mode
+            if (window.firstRangeClick === null) {
+                // First click - mark as selected
+                window.firstRangeClick = index;
+                if (!window.manageSelectedExistingImages.has(imageName)) {
+                    window.manageSelectedExistingImages.add(imageName);
+                }
+            } else if (window.firstRangeClick === index) {
+                // Clicked same image again - deselect and reset
+                window.manageSelectedExistingImages.delete(imageName);
+                window.firstRangeClick = null;
+            } else {
+                // Second click - select range
+                const start = Math.min(window.firstRangeClick, index);
+                const end = Math.max(window.firstRangeClick, index);
+
+                // Determine if we should select or deselect based on first click state
+                const firstImageName = window.allImageNames[window.firstRangeClick];
+                const shouldSelect = window.manageSelectedExistingImages.has(firstImageName);
+
+                // Apply to range
+                for (let i = start; i <= end; i++) {
+                    const imgName = window.allImageNames[i];
+                    if (shouldSelect) {
+                        window.manageSelectedExistingImages.add(imgName);
+                    } else {
+                        window.manageSelectedExistingImages.delete(imgName);
+                    }
+                }
+
+                // Reset for next range
+                window.firstRangeClick = null;
+            }
+
+            updateImageSelectionUI();
+        }
+
+        async function deleteSelectedProjectImages(projectId) {
+            if (window.manageSelectedExistingImages.size === 0) return;
+
+            const confirmed = confirm(
+                `⚠️ Delete ${window.manageSelectedExistingImages.size} image(s)?\n\n` +
+                `This will also delete all annotations for these images.\n\n` +
+                `This action CANNOT be undone!`
+            );
+
+            if (!confirmed) return;
+
+            try {
+                const res = await fetch(`/api/projects/${projectId}/delete-images`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        images: Array.from(window.manageSelectedExistingImages)
+                    })
+                });
+
+                const data = await res.json();
+
+                if (data.status === 'success') {
+                    alert(`Successfully deleted ${data.deleted} image(s)!`);
+                    window.manageSelectedExistingImages.clear();
+                    // Refresh the manage images view
+                    closeManageModal();
+                    const event = new Event('click');
+                    manageImages(event, projectId);
+                } else {
+                    alert('Failed to delete images: ' + (data.message || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Failed to delete images:', error);
+                alert('Failed to delete images');
+            }
+        }
+
+        function closeManageModal() {
+            document.getElementById('newProjectModal').classList.remove('visible');
+            window.manageUploadedImages = [];
+            window.manageSelectedExistingImages = new Set();
+        }
+
+        async function renameLabels(event, projectId) {
+            event.stopPropagation();
+            const project = projects.find(p => p.id === projectId);
+            if (!project) return;
+
+            // Close menu
+            document.getElementById(`menu-${projectId}`).classList.remove('visible');
+
+            // Create modal content for managing labels
+            const modal = document.getElementById('newProjectModal');
+            const modalContent = modal.querySelector('.modal-content');
+
+            modalContent.innerHTML = `
+                <div class="modal-header">
+                    <h2>Manage Labels - ${project.name}</h2>
+                </div>
+                <div id="renameLabelsContainer">
+                    ${project.labels.map((label, idx) => `
+                        <div class="label-row" data-label-id="${idx}" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <div style="flex: 1;">
+                                <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #666; font-size: 12px;">
+                                    Original: ${label}
+                                </label>
+                                <input type="text" class="rename-input" data-old-label="${label}" value="${label}" placeholder="New name">
+                            </div>
+                            <button type="button" onclick="removeLabelRow(this)" style="background: #e74c3c; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; height: 38px; margin-top: 18px;">
+                                🗑️
+                            </button>
+                        </div>
+                    `).join('')}
+                </div>
+                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
+                    <h3 style="font-size: 16px; margin-bottom: 10px; color: #2c3e50;">Add New Labels</h3>
+                    <div class="labels-input-container" id="newLabelsContainer" onclick="document.getElementById('newLabelInput').focus()" style="min-height: 60px;">
+                        <input type="text" class="add-label-input" id="newLabelInput" placeholder="Type label and press Enter" onkeydown="handleNewLabelInput(event)">
+                    </div>
+                </div>
+                <div class="modal-actions" style="margin-top: 20px;">
+                    <button type="button" class="btn btn-secondary" onclick="closeRenameModal()">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="saveRenamedLabels('${projectId}')">Save Changes</button>
+                </div>
+            `;
+
+            modal.classList.add('visible');
+            window.currentNewLabels = [];
+        }
+
+        async function saveRenamedLabels(projectId) {
+            const inputs = document.querySelectorAll('#renameLabelsContainer .rename-input');
+            const labelMap = {};
+            const deletedLabels = [];
+            const project = projects.find(p => p.id === projectId);
+
+            // Check for renames
+            inputs.forEach(input => {
+                const oldLabel = input.dataset.oldLabel;
+                const newLabel = input.value.trim();
+                if (oldLabel && newLabel && oldLabel !== newLabel) {
+                    labelMap[oldLabel] = newLabel;
+                }
+            });
+
+            // Check for deleted labels
+            project.labels.forEach(label => {
+                const stillExists = Array.from(inputs).some(input => input.dataset.oldLabel === label);
+                if (!stillExists) {
+                    deletedLabels.push(label);
+                }
+            });
+
+            // Get new labels
+            const newLabels = window.currentNewLabels || [];
+
+            // Check if any changes
+            if (Object.keys(labelMap).length === 0 && deletedLabels.length === 0 && newLabels.length === 0) {
+                alert('No changes detected');
+                closeRenameModal();
+                return;
+            }
+
+            // Warn about deletions
+            if (deletedLabels.length > 0) {
+                const confirmed = confirm(
+                    `⚠️ Warning: You are deleting ${deletedLabels.length} label(s):\n\n` +
+                    deletedLabels.map(l => `• ${l}`).join('\n') +
+                    `\n\nAll annotations with these labels will also be deleted.\n\nContinue?`
+                );
+                if (!confirmed) return;
+            }
+
+            try {
+                const res = await fetch(`/api/projects/${projectId}/update-labels`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        label_map: labelMap,
+                        deleted_labels: deletedLabels,
+                        new_labels: newLabels
+                    })
+                });
+
+                const data = await res.json();
+
+                if (data.status === 'success') {
+                    closeRenameModal();
+                    await loadProjects();
+                    renderProjects();
+                    alert('Labels updated successfully!');
+                } else {
+                    alert('Failed to update labels: ' + (data.message || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Failed to update labels:', error);
+                alert('Failed to update labels');
+            }
+        }
+
+        function removeLabelRow(button) {
+            const labelRow = button.closest('.label-row');
+            const labelInput = labelRow.querySelector('.rename-input');
+            const labelName = labelInput.dataset.oldLabel;
+
+            const confirmed = confirm(
+                `⚠️ Remove label "${labelName}"?\n\n` +
+                `This will delete all annotations with this label when you click "Save Changes".\n\n` +
+                `Continue?`
+            );
+
+            if (confirmed) {
+                labelRow.remove();
+            }
+        }
+
+        function handleNewLabelInput(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const input = document.getElementById('newLabelInput');
+                const label = input.value.trim();
+
+                if (!label) return;
+
+                if (!window.currentNewLabels) {
+                    window.currentNewLabels = [];
+                }
+
+                if (window.currentNewLabels.includes(label)) {
+                    alert('Label already added');
+                    return;
+                }
+
+                window.currentNewLabels.push(label);
+                input.value = '';
+
+                // Add tag to container
+                const container = document.getElementById('newLabelsContainer');
+                const tag = document.createElement('div');
+                tag.className = 'label-input-tag';
+                tag.innerHTML = `
+                    ${label}
+                    <span class="remove-label" onclick="removeNewLabel(this, '${label}')">×</span>
+                `;
+                container.insertBefore(tag, input);
+            }
+        }
+
+        function removeNewLabel(element, label) {
+            if (window.currentNewLabels) {
+                window.currentNewLabels = window.currentNewLabels.filter(l => l !== label);
+            }
+            element.closest('.label-input-tag').remove();
+        }
+
+        function closeRenameModal() {
+            document.getElementById('newProjectModal').classList.remove('visible');
+            // Restore original form
+            location.reload();
+        }
+
+        async function exportAnnotations(event, projectId) {
+            event.stopPropagation();
+            document.getElementById(`menu-${projectId}`).classList.remove('visible');
+
+            try {
+                const res = await fetch(`/api/projects/${projectId}/export-annotations`);
+                const data = await res.json();
+
+                if (data.status === 'success') {
+                    // Download as JSON file
+                    const project = projects.find(p => p.id === projectId);
+                    const filename = `${project.name.replace(/\s+/g, '_')}_annotations.json`;
+                    const blob = new Blob([JSON.stringify(data.annotations, null, 2)], {type: 'application/json'});
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = filename;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                } else {
+                    alert('Failed to export annotations');
+                }
+            } catch (error) {
+                console.error('Failed to export annotations:', error);
+                alert('Failed to export annotations');
+            }
+        }
+
+        async function exportModel(event, projectId) {
+            event.stopPropagation();
+            document.getElementById(`menu-${projectId}`).classList.remove('visible');
+
+            try {
+                const res = await fetch(`/api/projects/${projectId}/export-model`);
+                const data = await res.json();
+
+                if (data.status === 'error') {
+                    alert(data.message);
+                } else if (data.download_url) {
+                    // Download model file
+                    window.location.href = data.download_url;
+                }
+            } catch (error) {
+                console.error('Failed to export model:', error);
+                alert('Failed to export model');
+            }
+        }
+
+        async function deleteProject(event, projectId) {
+            event.stopPropagation();
+            const project = projects.find(p => p.id === projectId);
+            if (!project) return;
+
+            document.getElementById(`menu-${projectId}`).classList.remove('visible');
+
+            const confirmed = confirm(
+                `⚠️ WARNING: Delete "${project.name}"?\n\n` +
+                `This will permanently delete:\n` +
+                `• ${project.total_images || 0} images\n` +
+                `• ${project.annotated_images || 0} annotations\n` +
+                `• All project data\n\n` +
+                `This action CANNOT be undone!`
+            );
+
+            if (!confirmed) return;
+
+            try {
+                const res = await fetch(`/api/projects/${projectId}`, {
+                    method: 'DELETE'
+                });
+
+                const data = await res.json();
+
+                if (data.status === 'success') {
+                    await loadProjects();
+                    renderProjects();
+                    alert('Project deleted successfully');
+                } else {
+                    alert('Failed to delete project: ' + (data.message || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Failed to delete project:', error);
+                alert('Failed to delete project');
+            }
+        }
+
+        // Close menus when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.action-menu') && !e.target.closest('.action-menu-btn')) {
+                document.querySelectorAll('.action-menu').forEach(m => {
+                    m.classList.remove('visible');
+                });
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('newProjectModal').addEventListener('click', (e) => {
+            if (e.target.id === 'newProjectModal') {
+                closeModal();
+            }
+        });
+
+        // Initialize
+        init();
+    </script>
+</body>
+</html>

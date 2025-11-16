@@ -1,0 +1,1 @@
+- Nå sluttet range select å virke igjen ved opprettelse av nytt prosjekt, når man skal hente bilder fra annet prosjekt

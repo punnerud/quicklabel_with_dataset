@@ -303,8 +303,11 @@
             background: #e8f5e9;
             padding: 10px 15px;
             border-radius: 4px;
-            margin-bottom: 20px;
             font-size: 14px;
+            display: flex;
+            align-items: center;
+            color: #000;
+            font-weight: 600;
         }
 
         .prediction-toggle {
@@ -359,8 +362,11 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🎯 YOLO Annotator</h1>
-            <div class="stats" id="stats">Loading...</div>
+            <h1>🎯 YOLO Annotator <span id="projectName" style="font-size: 16px; font-weight: normal; opacity: 0.8;"></span></h1>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div class="stats" id="stats">Loading...</div>
+                <a href="/projects" style="text-decoration: none; font-size: 24px; opacity: 0.8; transition: opacity 0.2s; line-height: 1;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'" title="Project Settings">⚙️</a>
+            </div>
         </div>
 
         <div class="controls">
@@ -479,6 +485,11 @@
                 config = await configRes.json();
                 images = config.images;
 
+                // Display project name if available
+                if (config.project_name) {
+                    document.getElementById('projectName').textContent = `(${config.project_name})`;
+                }
+
                 const annotationsRes = await fetch('/api/annotations');
                 annotations = await annotationsRes.json();
 
@@ -558,11 +569,21 @@
             });
         }
 
+        // Update URL with current image
+        function updateURL(imageName) {
+            const url = new URL(window.location);
+            url.searchParams.set('image', imageName);
+            window.history.replaceState({}, '', url);
+        }
+
         async function loadImage(index) {
             if (index < 0 || index >= images.length) return;
 
             currentIndex = index;
             const imageName = images[index];
+
+            // Update URL
+            updateURL(imageName);
 
             // Reset selection
             selectedBboxIndex = -1;

@@ -54,6 +54,19 @@ train_ultralytics_backup.py
 yolox_dataset.py
 yolox_inference.py
 
+# Project-specific large files
+projects/*/input/*.jpg
+projects/*/input/*.jpeg
+projects/*/input/*.png
+projects/*/output/
+flask.log
+training_logs/
+
+# Keep project structure and annotations
+!projects/*/annotations.json
+!projects/*/input/.gitkeep
+!projects/*/output/.gitkeep
+
 # Keep structure but not content
 !data/annotations/.gitkeep
 !input/.gitkeep

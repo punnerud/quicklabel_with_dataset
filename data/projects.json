@@ -1,0 +1,17 @@
+{
+  "active_project": "legacy",
+  "projects": [
+    {
+      "id": "legacy",
+      "name": "Legacy Project",
+      "labels": [
+        "bryter",
+        "stikkontakt",
+        "elsparkesykkel",
+        "sluk",
+        "kumlokk"
+      ],
+      "created_at": "migrated"
+    }
+  ]
+}

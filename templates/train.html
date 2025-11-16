@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Model - {{ project.name }}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .back-link {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .back-link:hover {
+            background: #e3f2fd;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 5px;
+            color: #777;
+            font-size: 12px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .btn-primary:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            min-height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            line-height: 1.1;
+        }
+
+        #trainingLog {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        #trainingStatus {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        #trainingStatus.info {
+            background: #e3f2fd;
+            color: #1976d2;
+            border-left: 4px solid #1976d2;
+        }
+
+        #trainingStatus.success {
+            background: #e8f5e9;
+            color: #388e3c;
+            border-left: 4px solid #388e3c;
+        }
+
+        #trainingStatus.error {
+            background: #ffebee;
+            color: #c62828;
+            border-left: 4px solid #c62828;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #3498db;
+            width: 0%;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Train Model - {{ project.name }}</h1>
+            <a href="/projects" class="back-link">← Back to Projects</a>
+        </div>
+
+        <div class="content">
+            <!-- Project Stats -->
+            <div class="section">
+                <h2>📊 Project Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Total Images</div>
+                        <div class="stat-value" id="totalImages">{{ stats.total_images }}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Annotated Images</div>
+                        <div class="stat-value" id="annotatedImages">{{ stats.annotated_images }}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Annotations</div>
+                        <div class="stat-value" id="totalAnnotations">{{ stats.total_annotations }}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Classes</div>
+                        <div class="stat-value">{{ project.labels|length }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Existing Model Info -->
+            {% if model_info and model_info.exists %}
+            <div class="section">
+                <h2>🤖 Trained Model Performance</h2>
+                <div class="stats-grid">
+                    {% if model_info.total_epochs %}
+                    <div class="stat-card" style="border-left-color: #27ae60;">
+                        <div class="stat-label">Epochs Completed</div>
+                        <div class="stat-value">{{ model_info.total_epochs }}</div>
+                    </div>
+                    {% endif %}
+                    {% if model_info.best_loss %}
+                    <div class="stat-card" style="border-left-color: #27ae60;">
+                        <div class="stat-label">Best Loss</div>
+                        <div class="stat-value">{{ model_info.best_loss }}</div>
+                    </div>
+                    {% endif %}
+                    {% if model_info.latest_loss %}
+                    <div class="stat-card" style="border-left-color: #27ae60;">
+                        <div class="stat-label">Latest Loss</div>
+                        <div class="stat-value">{{ model_info.latest_loss }}</div>
+                    </div>
+                    {% endif %}
+                    {% if model_info.avg_loss %}
+                    <div class="stat-card" style="border-left-color: #27ae60;">
+                        <div class="stat-label">Avg Loss</div>
+                        <div class="stat-value">{{ model_info.avg_loss }}</div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="stats-grid" style="margin-top: 15px;">
+                    <div class="stat-card" style="border-left-color: #3498db;">
+                        <div class="stat-label">Model File Size</div>
+                        <div class="stat-value" style="font-size: 20px;">{{ model_info.size_mb }} MB</div>
+                    </div>
+                    {% if model_info.last_training_time %}
+                    <div class="stat-card" style="border-left-color: #3498db;">
+                        <div class="stat-label">Last Training</div>
+                        <div class="stat-value" style="font-size: 16px;">{{ model_info.last_training_time }}</div>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div style="margin-top: 15px; padding: 15px; background: #fff9e6; border-left: 4px solid #f39c12; border-radius: 4px;">
+                    <div style="font-weight: 600; color: #d68910; margin-bottom: 8px; font-size: 13px;">📊 Loss Metrics Explained:</div>
+                    <div style="font-size: 12px; color: #555; line-height: 1.6;">
+                        <strong>Best Loss:</strong> Lowest total loss achieved (lower is better)<br>
+                        <strong>Latest Loss:</strong> Most recent loss value from training<br>
+                        <strong>Avg Loss:</strong> Average across all training iterations
+                    </div>
+                </div>
+
+                <p style="margin-top: 15px; padding: 12px; background: #e8f5e9; border-left: 4px solid #27ae60; border-radius: 4px; color: #2e7d32; font-size: 14px;">
+                    ✅ Training will resume from where it left off (continuing from epoch {{ model_info.total_epochs }})
+                </p>
+                <p style="margin-top: 10px; padding: 12px; background: #e3f2fd; border-left: 4px solid #2196f3; border-radius: 4px; color: #1565c0; font-size: 13px;">
+                    ℹ️ You can continue labeling while training runs in background. New annotations will be included in the next training session.
+                </p>
+            </div>
+            {% endif %}
+
+            <!-- Training Parameters -->
+            <div class="section">
+                <h2>⚙️ Training Parameters</h2>
+                <form id="trainingForm">
+                    <div class="form-group">
+                        <label for="epochs">Epochs</label>
+                        <input type="number" id="epochs" name="epochs" value="300" min="1" max="1000">
+                        <small>Number of training epochs (recommended: 300)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="batchSize">Batch Size</label>
+                        <input type="number" id="batchSize" name="batchSize" value="4" min="1" max="32">
+                        <small>Batch size for training (4 for YOLOX-M, 8 for YOLOX-S)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modelSize">Model Size</label>
+                        <select id="modelSize" name="modelSize">
+                            <option value="s" {% if model_info and model_info.model_size == 's' %}selected{% endif %}>YOLOX-S (Small - Faster)</option>
+                            <option value="m" {% if not model_info or model_info.model_size == 'm' %}selected{% endif %}>YOLOX-M (Medium - Balanced)</option>
+                            <option value="l" {% if model_info and model_info.model_size == 'l' %}selected{% endif %}>YOLOX-L (Large - More Accurate)</option>
+                        </select>
+                        <small>{% if model_info %}Current model: YOLOX-{{ model_info.model_size|upper }}. {% endif %}Changing size requires starting training from scratch.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="device">Device</label>
+                        <select id="device" name="device">
+                            <option value="mps" selected>Apple Silicon (MPS)</option>
+                            <option value="cuda">NVIDIA GPU (CUDA)</option>
+                            <option value="cpu">CPU</option>
+                        </select>
+                        <small>Training device (MPS for M1/M2/M3 Macs)</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="startTrainingBtn">
+                        🚀 Start Training
+                    </button>
+                    <button type="button" class="btn btn-danger" id="stopTrainingBtn" style="display: none;" onclick="stopTraining()">
+                        ⏹️ Stop Training
+                    </button>
+                </form>
+            </div>
+
+            <!-- Training Status -->
+            <div id="trainingStatus"></div>
+
+            <!-- Training Log -->
+            <div class="section" id="logSection" style="display: none;">
+                <h2>📝 Training Log</h2>
+                <div id="trainingLog">Waiting to start training...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let trainingInterval = null;
+        let trainingJobId = {% if active_job_id %}'{{ active_job_id }}'{% else %}null{% endif %};
+        const originalModelSize = {% if model_info %}'{{ model_info.model_size }}'{% else %}null{% endif %};
+
+        // If there's an active training job, show it
+        if (trainingJobId) {
+            const status = document.getElementById('trainingStatus');
+            status.className = 'info';
+            status.style.display = 'block';
+            status.innerHTML = '⏳ Training in progress in background... <a href="/" style="color: #3498db; text-decoration: underline;">Continue labeling</a> or stay here to monitor progress.';
+
+            document.getElementById('logSection').style.display = 'block';
+            document.getElementById('startTrainingBtn').disabled = true;
+            document.getElementById('stopTrainingBtn').style.display = 'inline-block';
+
+            // Start polling for updates
+            trainingInterval = setInterval(updateTrainingStatus, 2000);
+            // Also fetch immediately
+            updateTrainingStatus();
+        }
+
+        document.getElementById('trainingForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            await startTraining();
+        });
+
+        // Warn if model size is changed
+        document.getElementById('modelSize').addEventListener('change', function() {
+            if (originalModelSize && this.value !== originalModelSize) {
+                const warning = document.createElement('div');
+                warning.id = 'modelSizeWarning';
+                warning.style.cssText = 'margin-top: 10px; padding: 10px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px; color: #856404; font-size: 13px;';
+                warning.innerHTML = '⚠️ <strong>Warning:</strong> Changing model size will start training from scratch, not resume.';
+
+                const existing = document.getElementById('modelSizeWarning');
+                if (existing) existing.remove();
+
+                this.parentElement.appendChild(warning);
+            } else {
+                const existing = document.getElementById('modelSizeWarning');
+                if (existing) existing.remove();
+            }
+        });
+
+        async function startTraining() {
+            const formData = {
+                project_id: '{{ project.id }}',
+                epochs: parseInt(document.getElementById('epochs').value),
+                batch_size: parseInt(document.getElementById('batchSize').value),
+                model_size: document.getElementById('modelSize').value,
+                device: document.getElementById('device').value
+            };
+
+            // Check if model size changed
+            if (originalModelSize && formData.model_size !== originalModelSize) {
+                if (!confirm('You changed the model size. This will start training from scratch instead of resuming. Continue?')) {
+                    return;
+                }
+            }
+
+            // Show status and log
+            const status = document.getElementById('trainingStatus');
+            status.className = 'info';
+            status.style.display = 'block';
+            status.innerHTML = '🚀 Starting training...';
+
+            document.getElementById('logSection').style.display = 'block';
+            document.getElementById('trainingLog').textContent = 'Initializing training...\n';
+
+            // Disable start button, enable stop button
+            document.getElementById('startTrainingBtn').disabled = true;
+            document.getElementById('stopTrainingBtn').style.display = 'inline-block';
+
+            try {
+                const response = await fetch('/api/train/start', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    trainingJobId = data.job_id;
+                    status.className = 'info';
+                    status.innerHTML = '⏳ Training in progress in background... <a href="/" style="color: #3498db; text-decoration: underline;">Continue labeling</a> or stay here to monitor progress.';
+
+                    // Start polling for updates
+                    trainingInterval = setInterval(updateTrainingStatus, 2000);
+                } else {
+                    status.className = 'error';
+                    status.innerHTML = '❌ Failed to start training: ' + (data.message || 'Unknown error');
+                    document.getElementById('startTrainingBtn').disabled = false;
+                    document.getElementById('stopTrainingBtn').style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error starting training:', error);
+                status.className = 'error';
+                status.innerHTML = '❌ Failed to start training: ' + error.message;
+                document.getElementById('startTrainingBtn').disabled = false;
+                document.getElementById('stopTrainingBtn').style.display = 'none';
+            }
+        }
+
+        async function updateTrainingStatus() {
+            if (!trainingJobId) return;
+
+            try {
+                const response = await fetch(`/api/train/status/${trainingJobId}`);
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    const log = document.getElementById('trainingLog');
+                    if (data.log) {
+                        log.textContent = data.log;
+                        // Auto-scroll to bottom
+                        log.scrollTop = log.scrollHeight;
+                    }
+
+                    const status = document.getElementById('trainingStatus');
+
+                    if (data.training_status === 'completed') {
+                        clearInterval(trainingInterval);
+                        status.className = 'success';
+                        status.innerHTML = '✅ Training completed successfully!';
+                        document.getElementById('startTrainingBtn').disabled = false;
+                        document.getElementById('stopTrainingBtn').style.display = 'none';
+                    } else if (data.training_status === 'failed') {
+                        clearInterval(trainingInterval);
+                        status.className = 'error';
+                        status.innerHTML = '❌ Training failed. Check the log for details.';
+                        document.getElementById('startTrainingBtn').disabled = false;
+                        document.getElementById('stopTrainingBtn').style.display = 'none';
+                    } else if (data.training_status === 'stopped') {
+                        clearInterval(trainingInterval);
+                        status.className = 'info';
+                        status.innerHTML = '⏹️ Training stopped by user';
+                        document.getElementById('startTrainingBtn').disabled = false;
+                        document.getElementById('stopTrainingBtn').style.display = 'none';
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching training status:', error);
+            }
+        }
+
+        async function stopTraining() {
+            if (!trainingJobId) return;
+
+            if (!confirm('Are you sure you want to stop training?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/train/stop/${trainingJobId}`, {
+                    method: 'POST'
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    clearInterval(trainingInterval);
+                    const status = document.getElementById('trainingStatus');
+                    status.className = 'info';
+                    status.innerHTML = '⏹️ Stopping training...';
+                }
+            } catch (error) {
+                console.error('Error stopping training:', error);
+            }
+        }
+    </script>
+</body>
+</html>
