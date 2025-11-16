@@ -71,3 +71,7 @@ training_logs/
 !data/annotations/.gitkeep
 !input/.gitkeep
 !output/.gitkeep
+
+# Inference temp files
+inference_temp/
+temp_inference_*/

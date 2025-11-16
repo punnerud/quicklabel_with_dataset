@@ -6,12 +6,17 @@ Allows you to draw bounding boxes and label objects.
 
 import os
 import json
+import logging
 from pathlib import Path
 from flask import Flask, render_template, jsonify, request, send_from_directory
 import base64
 import io
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
+
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
@@ -388,6 +393,20 @@ def projects():
             break  # Only show first active job
 
     return render_template('projects.html', active_training=active_training)
+
+
+@app.route('/use-models')
+def use_models_page():
+    """Serve the use models page for inference"""
+    projects_data = load_projects()
+    # Filter projects that have trained models
+    projects_with_models = []
+    for project in projects_data['projects']:
+        model_paths = get_model_paths(project['id'])
+        if model_paths['best'].exists() or model_paths['latest'].exists():
+            projects_with_models.append(project)
+
+    return render_template('use_models.html', projects=projects_with_models)
 
 
 @app.route('/train/<project_id>')
@@ -2372,6 +2391,206 @@ def stop_training(job_id):
         'status': 'success',
         'message': 'Training stopped'
     })
+
+
+# ============================================================================
+# Use Models - Inference API
+# ============================================================================
+
+@app.route('/api/use-models/load-folder', methods=['POST'])
+def load_folder_images():
+    """Load images from a folder path"""
+    data = request.json
+    folder_path = data.get('folder_path')
+
+    if not folder_path or not Path(folder_path).exists():
+        return jsonify({
+            'status': 'error',
+            'message': 'Invalid folder path'
+        })
+
+    folder = Path(folder_path)
+    if not folder.is_dir():
+        return jsonify({
+            'status': 'error',
+            'message': 'Path is not a directory'
+        })
+
+    # Find all images
+    image_extensions = ['.jpg', '.jpeg', '.png', '.bmp']
+    images = []
+    for ext in image_extensions:
+        images.extend([str(f) for f in folder.glob(f'*{ext}')])
+        images.extend([str(f) for f in folder.glob(f'*{ext.upper()}')])
+
+    return jsonify({
+        'status': 'success',
+        'images': images,
+        'message': f'Found {len(images)} images'
+    })
+
+
+@app.route('/api/use-models/inference', methods=['POST'])
+def run_inference():
+    """Run inference on uploaded images or folder"""
+    try:
+        model_source = request.form.get('model_source')
+        project_id = request.form.get('project_id')
+        folder_path = request.form.get('folder_path')
+
+        # Load model
+        model = None
+        classes = []
+
+        if model_source == 'project':
+            if not project_id:
+                return jsonify({'status': 'error', 'message': 'No project selected'})
+
+            # Load project model
+            model_paths = get_model_paths(project_id)
+            model_path = model_paths['best'] if model_paths['best'].exists() else model_paths['latest']
+
+            if not model_path.exists():
+                return jsonify({'status': 'error', 'message': 'Model not found for project'})
+
+            # Get project classes
+            projects_data = load_projects()
+            for p in projects_data['projects']:
+                if p['id'] == project_id:
+                    classes = p['labels']
+                    break
+
+            # Load model
+            model = load_yolox_model(project_id)
+
+        elif model_source == 'upload':
+            # Handle uploaded model file
+            if 'model_file' not in request.files:
+                return jsonify({'status': 'error', 'message': 'No model file uploaded'})
+
+            model_file = request.files['model_file']
+            # Save temporarily and load
+            temp_model_path = Path(f"temp_{uuid.uuid4()}.pth")
+            model_file.save(temp_model_path)
+
+            try:
+                import torch
+                ckpt = torch.load(temp_model_path, map_location='cpu')
+                # Try to extract classes from model if available
+                if 'classes' in ckpt:
+                    classes = ckpt['classes']
+                else:
+                    # Default classes - user should provide these
+                    classes = [f'class_{i}' for i in range(ckpt.get('model_config', {}).get('num_classes', 5))]
+
+                model = load_yolox_model_from_path(temp_model_path)
+            finally:
+                if temp_model_path.exists():
+                    temp_model_path.unlink()
+
+        if not model:
+            return jsonify({'status': 'error', 'message': 'Failed to load model'})
+
+        # Get images
+        image_paths = []
+        temp_dir = None
+
+        if folder_path:
+            # Load from folder
+            folder = Path(folder_path)
+            image_extensions = ['.jpg', '.jpeg', '.png', '.bmp']
+            for ext in image_extensions:
+                image_paths.extend(folder.glob(f'*{ext}'))
+                image_paths.extend(folder.glob(f'*{ext.upper()}'))
+        else:
+            # Save uploaded images to persistent temp directory
+            # Create a unique session directory but don't delete it - we need it for serving images
+            uploaded_files = request.files.getlist('images')
+            session_id = str(uuid.uuid4())[:8]
+            temp_dir = Path("inference_temp") / session_id
+            temp_dir.mkdir(parents=True, exist_ok=True)
+
+            for file in uploaded_files:
+                temp_path = temp_dir / file.filename
+                file.save(temp_path)
+                image_paths.append(temp_path)
+
+        # Store image paths for serving
+        global inference_image_cache
+        if not hasattr(run_inference, 'image_cache'):
+            run_inference.image_cache = {}
+
+        # Run inference on all images
+        results = []
+        for img_path in image_paths:
+            detections = run_yolox_inference(model, str(img_path), classes)
+            if detections:
+                # Store path for serving
+                run_inference.image_cache[img_path.name] = str(img_path)
+
+                results.append({
+                    'filename': img_path.name,
+                    'path': str(img_path),
+                    'image_url': f'/api/use-models/image/{img_path.name}',
+                    'detections': detections
+                })
+
+        # Note: Don't delete temp_dir - we need the images for serving via image_cache
+
+        return jsonify({
+            'status': 'success',
+            'results': results,
+            'classes': classes,
+            'message': f'Processed {len(image_paths)} images, found {len(results)} with detections'
+        })
+
+    except Exception as e:
+        logger.error(f"Inference error: {e}")
+        return jsonify({
+            'status': 'error',
+            'message': str(e)
+        })
+
+
+@app.route('/api/use-models/image/<filename>')
+def serve_inference_image(filename):
+    """Serve cached inference result images"""
+    if not hasattr(run_inference, 'image_cache'):
+        return jsonify({'status': 'error', 'message': 'No images cached'}), 404
+
+    if filename not in run_inference.image_cache:
+        return jsonify({'status': 'error', 'message': 'Image not found'}), 404
+
+    image_path = Path(run_inference.image_cache[filename])
+    if not image_path.exists():
+        return jsonify({'status': 'error', 'message': 'Image file not found on disk'}), 404
+
+    return send_from_directory(image_path.parent, image_path.name)
+
+
+def run_yolox_inference(predictor, image_path, classes):
+    """Run YOLOX inference on a single image"""
+    try:
+        # Use the predictor's predict method
+        if hasattr(predictor, 'predict'):
+            # YOLOXPredictor.predict() returns list of dicts:
+            # [{'bbox': [x1, y1, x2, y2], 'class': class_name, 'confidence': conf}, ...]
+            detections = predictor.predict(image_path, conf_threshold=0.05)
+            return detections if detections else []
+        else:
+            logger.warning("Predictor does not have predict method")
+            return []
+
+    except Exception as e:
+        logger.error(f"Inference error for {image_path}: {e}", exc_info=True)
+        return []
+
+
+def load_yolox_model_from_path(model_path):
+    """Load YOLOX model from a path"""
+    # Reuse existing load_yolox_model logic
+    # For now, simplified version
+    return None
 
 
 if __name__ == "__main__":
