@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO Annotator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .controls {
+            background: #34495e;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .nav-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .nav-buttons button:hover {
+            background: #2980b9;
+        }
+
+        .nav-buttons button:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        .save-btn {
+            background: #27ae60 !important;
+            padding: 10px 30px !important;
+        }
+
+        .save-btn:hover {
+            background: #229954 !important;
+        }
+
+        .predict-btn {
+            background: #e74c3c !important;
+        }
+
+        .predict-btn:hover {
+            background: #c0392b !important;
+        }
+
+        .main-content {
+            display: flex;
+            height: calc(100vh - 200px);
+        }
+
+        .image-panel {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #ecf0f1;
+            position: relative;
+        }
+
+        .canvas-container {
+            position: relative;
+            max-width: 100%;
+            max-height: 100%;
+            display: inline-block;
+        }
+
+        #imageCanvas {
+            max-width: 100%;
+            max-height: 100%;
+            cursor: crosshair;
+            border: 2px solid #2c3e50;
+        }
+
+        .annotation-panel {
+            width: 350px;
+            padding: 30px;
+            border-left: 1px solid #ddd;
+            overflow-y: auto;
+        }
+
+        .annotation-panel h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .class-selector {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .class-selector h3 {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .class-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .class-btn {
+            padding: 8px 16px;
+            border: 2px solid #3498db;
+            background: white;
+            color: #3498db;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .class-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .class-btn:hover {
+            background: #e3f2fd;
+        }
+
+        .class-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            height: 24px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .class-btn.active .class-number {
+            background: white;
+            color: #3498db;
+        }
+
+        .bbox-list {
+            margin-top: 20px;
+        }
+
+        .bbox-item {
+            background: #f8f9fa;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bbox-info {
+            flex: 1;
+        }
+
+        .bbox-class {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .bbox-coords {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .bbox-delete {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .bbox-delete:hover {
+            background: #c0392b;
+        }
+
+        .instructions {
+            background: #fff3cd;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .instructions strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        kbd {
+            background: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+            color: #333;
+            display: inline-block;
+            font-family: monospace;
+            font-size: 12px;
+            line-height: 1;
+            padding: 3px 6px;
+            white-space: nowrap;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background: #2980b9;
+        }
+
+        input[type="range"]::-moz-range-thumb:hover {
+            background: #2980b9;
+        }
+
+        .stats {
+            background: #e8f5e9;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .prediction-toggle {
+            background: #fff;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .prediction-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 10;
+        }
+
+        .prediction-overlay.visible {
+            display: flex;
+        }
+
+        .prediction-overlay img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 YOLO Annotator</h1>
+            <div class="stats" id="stats">Loading...</div>
+        </div>
+
+        <div class="controls">
+            <div class="progress-info">
+                <span id="progress">Image 0 / 0</span>
+                <span class="filename" id="filename">No image</span>
+            </div>
+            <div class="nav-buttons">
+                <button id="prevBtn" onclick="previousImage()">← Previous (P)</button>
+                <button id="nextBtn" onclick="nextImage()">Next (N) →</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="image-panel">
+                <div class="canvas-container" id="canvasContainer">
+                    <canvas id="imageCanvas"></canvas>
+                </div>
+                <div class="prediction-overlay" id="predictionOverlay">
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+
+            <div class="annotation-panel">
+                <!-- Live detection toggle -->
+                <div class="prediction-toggle" id="liveDetectionContainer" style="display: none; margin-bottom: 15px;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 600;">
+                        <input type="checkbox" id="liveDetectionCheckbox" onchange="toggleLiveDetection()" style="width: 20px; height: 20px; cursor: pointer;">
+                        <span>🤖 Live Detection</span>
+                    </label>
+
+                    <!-- Confidence threshold slider -->
+                    <div id="confidenceSliderContainer" style="margin-top: 10px; display: none;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <label style="font-size: 13px; font-weight: 600; color: #555;">Confidence Threshold:</label>
+                            <span id="confidenceValue" style="font-size: 13px; font-weight: bold; color: #3498db;">25%</span>
+                        </div>
+                        <input type="range" id="confidenceSlider" min="1" max="99" value="25" step="1"
+                               oninput="updateConfidence()" onchange="reloadDetections()"
+                               style="width: 100%; cursor: pointer;">
+                        <div style="display: flex; justify-content: space-between; font-size: 11px; color: #999; margin-top: 2px;">
+                            <span>1% (all detections)</span>
+                            <span>99% (only confident)</span>
+                        </div>
+                    </div>
+
+                    <div id="detectionStatus" style="font-size: 12px; color: #666; margin-top: 5px; display: none;">
+                        Loading model...
+                    </div>
+                </div>
+
+                <h2>Annotations</h2>
+
+                <!-- Manual prediction button (hidden when live detection is on) -->
+                <div class="prediction-toggle" id="predictionToggleContainer" style="display: none;">
+                    <button class="predict-btn" onclick="showPredictions()">🔮 Show Predictions</button>
+                </div>
+
+                <!-- Class selector -->
+                <div class="class-selector">
+                    <h3>Select Class:</h3>
+                    <div class="class-buttons" id="classButtons"></div>
+                </div>
+
+                <!-- Bounding box list -->
+                <div class="bbox-list">
+                    <h3>Bounding Boxes (<span id="bboxCount">0</span>)</h3>
+                    <div id="bboxList"></div>
+                </div>
+
+                <div class="instructions">
+                    <strong>Keyboard Shortcuts:</strong>
+                    • <kbd>1-5</kbd> Select class<br>
+                    • <kbd>P</kbd> / <kbd>N</kbd> Previous / Next image<br>
+                    • <kbd>Delete</kbd> Delete selected box<br>
+                    • <kbd>Esc</kbd> Deselect box<br>
+                    <br>
+                    <strong>Mouse:</strong>
+                    • Click & drag to draw new box<br>
+                    • Click box to select<br>
+                    • Drag box to move<br>
+                    • Drag corners to resize
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let config = null;
+        let images = [];
+        let currentIndex = 0;
+        let annotations = {};
+        let currentBboxes = [];
+        let selectedClass = null;
+        let isDrawing = false;
+        let isDragging = false;
+        let isResizing = false;
+        let startX, startY;
+        let canvas, ctx;
+        let currentImage = null;
+        let selectedBboxIndex = -1;
+        let resizeHandle = null; // 'tl', 'tr', 'bl', 'br' for top-left, top-right, bottom-left, bottom-right
+        let dragOffsetX = 0;
+        let dragOffsetY = 0;
+        let liveDetectionEnabled = false;
+        let detectionOverlayImage = null;
+        let confidenceThreshold = 0.25;
+
+        const COLORS = ['#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c'];
+        const HANDLE_SIZE = 20;
+
+        // Initialize
+        async function init() {
+            try {
+                const configRes = await fetch('/api/config');
+                config = await configRes.json();
+                images = config.images;
+
+                const annotationsRes = await fetch('/api/annotations');
+                annotations = await annotationsRes.json();
+
+                if (images.length === 0) {
+                    alert('No images found in input/ folder. Please add images and refresh.');
+                    return;
+                }
+
+                // Setup canvas
+                canvas = document.getElementById('imageCanvas');
+                ctx = canvas.getContext('2d');
+
+                // Canvas event listeners
+                canvas.addEventListener('mousedown', startDrawing);
+                canvas.addEventListener('mousemove', draw);
+                canvas.addEventListener('mouseup', stopDrawing);
+                canvas.addEventListener('mouseout', stopDrawing);
+                canvas.addEventListener('mousemove', updateCursor);
+
+                createClassButtons();
+
+                // Always show live detection toggle (will show error if model not available)
+                document.getElementById('liveDetectionContainer').style.display = 'block';
+
+                // Show prediction button if model is available
+                if (config.model_available) {
+                    document.getElementById('predictionToggleContainer').style.display = 'block';
+                }
+
+                // Find first unannotated image or start at 0
+                let startIndex = 0;
+                for (let i = 0; i < images.length; i++) {
+                    if (!annotations.images[images[i]]) {
+                        startIndex = i;
+                        break;
+                    }
+                }
+
+                loadImage(startIndex);
+                updateStats();
+            } catch (error) {
+                console.error('Failed to initialize:', error);
+                alert('Failed to load configuration. Make sure the server is running.');
+            }
+        }
+
+        function createClassButtons() {
+            const container = document.getElementById('classButtons');
+            container.innerHTML = '';
+
+            config.classes.forEach((className, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'class-btn';
+                btn.innerHTML = `<span class="class-number">${idx + 1}</span> ${className}`;
+                btn.onclick = () => selectClass(className);
+                btn.id = `class-btn-${className}`;
+                container.appendChild(btn);
+            });
+
+            // Select first class by default
+            if (config.classes.length > 0) {
+                selectClass(config.classes[0]);
+            }
+        }
+
+        function selectClass(className) {
+            selectedClass = className;
+
+            // Update button states
+            config.classes.forEach(cls => {
+                const btn = document.getElementById(`class-btn-${cls}`);
+                if (cls === className) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        async function loadImage(index) {
+            if (index < 0 || index >= images.length) return;
+
+            currentIndex = index;
+            const imageName = images[index];
+
+            // Reset selection
+            selectedBboxIndex = -1;
+            isDragging = false;
+            isDrawing = false;
+            isResizing = false;
+
+            // Clear current state immediately
+            currentBboxes = [];
+            currentImage = null;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            updateBboxList();
+
+            // Update UI
+            document.getElementById('progress').textContent = `Image ${index + 1} / ${images.length}`;
+            document.getElementById('filename').textContent = imageName;
+
+            // Load annotation first
+            try {
+                const res = await fetch(`/api/annotation/${imageName}`);
+                const annotation = await res.json();
+                currentBboxes = annotation.bboxes || [];
+                updateBboxList();
+            } catch (error) {
+                console.error('Failed to load annotation:', error);
+                currentBboxes = [];
+            }
+
+            // Load image and wait for it to complete
+            const img = new Image();
+            await new Promise((resolve, reject) => {
+                img.onload = () => {
+                    currentImage = img;
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    redrawCanvas();
+                    resolve();
+                };
+                img.onerror = reject;
+                img.src = `/input/${imageName}`;
+            });
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === images.length - 1;
+
+            // Hide predictions
+            const overlay = document.getElementById('predictionOverlay');
+            overlay.classList.remove('visible');
+
+            // Load detections if live detection is enabled
+            if (liveDetectionEnabled) {
+                await loadDetections();
+            }
+        }
+
+        function redrawCanvas() {
+            if (!currentImage) return;
+
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw image
+            ctx.drawImage(currentImage, 0, 0);
+
+            // Draw detection overlay if live detection is enabled
+            if (liveDetectionEnabled && detectionOverlayImage) {
+                ctx.globalAlpha = 0.7;
+                ctx.drawImage(detectionOverlayImage, 0, 0, canvas.width, canvas.height);
+                ctx.globalAlpha = 1.0;
+            }
+
+            // Draw bboxes
+            currentBboxes.forEach((bbox, idx) => {
+                const color = COLORS[config.classes.indexOf(bbox.class) % COLORS.length];
+                const isSelected = idx === selectedBboxIndex;
+
+                ctx.strokeStyle = color;
+                ctx.lineWidth = isSelected ? 16 : 12;
+                ctx.strokeRect(bbox.x, bbox.y, bbox.width, bbox.height);
+
+                // Draw label
+                ctx.fillStyle = color;
+                ctx.font = 'bold 64px Arial';
+                const label = bbox.class;
+                const textWidth = ctx.measureText(label).width;
+                const textHeight = 80;
+                ctx.fillRect(bbox.x, bbox.y - textHeight, textWidth + 40, textHeight);
+                ctx.fillStyle = 'white';
+                ctx.fillText(label, bbox.x + 20, bbox.y - 20);
+
+                // Draw resize handles if selected
+                if (isSelected) {
+                    ctx.fillStyle = 'white';
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = 3;
+
+                    // Top-left
+                    ctx.fillRect(bbox.x - HANDLE_SIZE/2, bbox.y - HANDLE_SIZE/2, HANDLE_SIZE, HANDLE_SIZE);
+                    ctx.strokeRect(bbox.x - HANDLE_SIZE/2, bbox.y - HANDLE_SIZE/2, HANDLE_SIZE, HANDLE_SIZE);
+
+                    // Top-right
+                    ctx.fillRect(bbox.x + bbox.width - HANDLE_SIZE/2, bbox.y - HANDLE_SIZE/2, HANDLE_SIZE, HANDLE_SIZE);
+                    ctx.strokeRect(bbox.x + bbox.width - HANDLE_SIZE/2, bbox.y - HANDLE_SIZE/2, HANDLE_SIZE, HANDLE_SIZE);
+
+                    // Bottom-left
+                    ctx.fillRect(bbox.x - HANDLE_SIZE/2, bbox.y + bbox.height - HANDLE_SIZE/2, HANDLE_SIZE, HANDLE_SIZE);
+                    ctx.strokeRect(bbox.x - HANDLE_SIZE/2, bbox.y + bbox.height - HANDLE_SIZE/2, HANDLE_SIZE, HANDLE_SIZE);
+
+                    // Bottom-right
+                    ctx.fillRect(bbox.x + bbox.width - HANDLE_SIZE/2, bbox.y + bbox.height - HANDLE_SIZE/2, HANDLE_SIZE, HANDLE_SIZE);
+                    ctx.strokeRect(bbox.x + bbox.width - HANDLE_SIZE/2, bbox.y + bbox.height - HANDLE_SIZE/2, HANDLE_SIZE, HANDLE_SIZE);
+                }
+            });
+        }
+
+        function getCanvasCoordinates(e) {
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+
+            return {
+                x: (e.clientX - rect.left) * scaleX,
+                y: (e.clientY - rect.top) * scaleY
+            };
+        }
+
+        function getResizeHandle(x, y, bbox) {
+            const handles = [
+                { name: 'tl', x: bbox.x, y: bbox.y },
+                { name: 'tr', x: bbox.x + bbox.width, y: bbox.y },
+                { name: 'bl', x: bbox.x, y: bbox.y + bbox.height },
+                { name: 'br', x: bbox.x + bbox.width, y: bbox.y + bbox.height }
+            ];
+
+            for (let handle of handles) {
+                if (Math.abs(x - handle.x) < HANDLE_SIZE && Math.abs(y - handle.y) < HANDLE_SIZE) {
+                    return handle.name;
+                }
+            }
+            return null;
+        }
+
+        function isInsideBbox(x, y, bbox) {
+            return x >= bbox.x && x <= bbox.x + bbox.width &&
+                   y >= bbox.y && y <= bbox.y + bbox.height;
+        }
+
+        function startDrawing(e) {
+            const coords = getCanvasCoordinates(e);
+
+            // Check if clicking on existing bbox (for drag/resize)
+            for (let i = currentBboxes.length - 1; i >= 0; i--) {
+                const bbox = currentBboxes[i];
+
+                // Check if clicking on resize handle
+                const handle = getResizeHandle(coords.x, coords.y, bbox);
+                if (handle) {
+                    isResizing = true;
+                    selectedBboxIndex = i;
+                    resizeHandle = handle;
+                    startX = coords.x;
+                    startY = coords.y;
+                    canvas.style.cursor = 'nwse-resize';
+                    return;
+                }
+
+                // Check if clicking inside bbox (for dragging)
+                if (isInsideBbox(coords.x, coords.y, bbox)) {
+                    isDragging = true;
+                    selectedBboxIndex = i;
+                    dragOffsetX = coords.x - bbox.x;
+                    dragOffsetY = coords.y - bbox.y;
+                    canvas.style.cursor = 'move';
+                    redrawCanvas();
+                    return;
+                }
+            }
+
+            // Deselect if clicking outside
+            if (selectedBboxIndex !== -1) {
+                selectedBboxIndex = -1;
+                redrawCanvas();
+            }
+
+            // Start drawing new box
+            if (!selectedClass) {
+                alert('Please select a class first!');
+                return;
+            }
+
+            isDrawing = true;
+            startX = coords.x;
+            startY = coords.y;
+            canvas.style.cursor = 'crosshair';
+        }
+
+        function draw(e) {
+            const coords = getCanvasCoordinates(e);
+
+            // Handle dragging
+            if (isDragging) {
+                const bbox = currentBboxes[selectedBboxIndex];
+                bbox.x = coords.x - dragOffsetX;
+                bbox.y = coords.y - dragOffsetY;
+
+                // Keep within canvas bounds
+                bbox.x = Math.max(0, Math.min(canvas.width - bbox.width, bbox.x));
+                bbox.y = Math.max(0, Math.min(canvas.height - bbox.height, bbox.y));
+
+                redrawCanvas();
+                return;
+            }
+
+            // Handle resizing
+            if (isResizing) {
+                const bbox = currentBboxes[selectedBboxIndex];
+                const dx = coords.x - startX;
+                const dy = coords.y - startY;
+
+                if (resizeHandle === 'tl') {
+                    bbox.x += dx;
+                    bbox.y += dy;
+                    bbox.width -= dx;
+                    bbox.height -= dy;
+                } else if (resizeHandle === 'tr') {
+                    bbox.y += dy;
+                    bbox.width += dx;
+                    bbox.height -= dy;
+                } else if (resizeHandle === 'bl') {
+                    bbox.x += dx;
+                    bbox.width -= dx;
+                    bbox.height += dy;
+                } else if (resizeHandle === 'br') {
+                    bbox.width += dx;
+                    bbox.height += dy;
+                }
+
+                // Keep minimum size
+                if (bbox.width < 20) bbox.width = 20;
+                if (bbox.height < 20) bbox.height = 20;
+
+                startX = coords.x;
+                startY = coords.y;
+
+                redrawCanvas();
+                return;
+            }
+
+            // Handle drawing new box
+            if (!isDrawing) return;
+
+            const currentX = coords.x;
+            const currentY = coords.y;
+
+            redrawCanvas();
+
+            // Draw current box
+            const width = currentX - startX;
+            const height = currentY - startY;
+
+            const color = COLORS[config.classes.indexOf(selectedClass) % COLORS.length];
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 12;
+            ctx.setLineDash([20, 20]);
+            ctx.strokeRect(startX, startY, width, height);
+            ctx.setLineDash([]);
+        }
+
+        function stopDrawing(e) {
+            canvas.style.cursor = 'crosshair';
+
+            // Handle drag/resize completion
+            if (isDragging || isResizing) {
+                isDragging = false;
+                isResizing = false;
+                resizeHandle = null;
+                saveCurrentAnnotation();
+                redrawCanvas();
+                updateBboxList();
+                return;
+            }
+
+            // Handle new box completion
+            if (!isDrawing) return;
+            isDrawing = false;
+
+            const coords = getCanvasCoordinates(e);
+            const endX = coords.x;
+            const endY = coords.y;
+
+            const width = endX - startX;
+            const height = endY - startY;
+
+            // Minimum box size
+            if (Math.abs(width) > 10 && Math.abs(height) > 10) {
+                // Normalize coordinates (handle negative width/height)
+                const x = Math.min(startX, endX);
+                const y = Math.min(startY, endY);
+                const w = Math.abs(width);
+                const h = Math.abs(height);
+
+                currentBboxes.push({
+                    class: selectedClass,
+                    x: x,
+                    y: y,
+                    width: w,
+                    height: h
+                });
+
+                saveCurrentAnnotation();
+                redrawCanvas();
+                updateBboxList();
+            }
+        }
+
+        function updateCursor(e) {
+            if (isDrawing || isDragging || isResizing) return;
+
+            const coords = getCanvasCoordinates(e);
+
+            // Check for resize handles
+            for (let i = currentBboxes.length - 1; i >= 0; i--) {
+                const bbox = currentBboxes[i];
+                const handle = getResizeHandle(coords.x, coords.y, bbox);
+
+                if (handle) {
+                    if (handle === 'tl' || handle === 'br') {
+                        canvas.style.cursor = 'nwse-resize';
+                    } else {
+                        canvas.style.cursor = 'nesw-resize';
+                    }
+                    return;
+                }
+
+                // Check if inside bbox
+                if (isInsideBbox(coords.x, coords.y, bbox)) {
+                    canvas.style.cursor = 'move';
+                    return;
+                }
+            }
+
+            canvas.style.cursor = 'crosshair';
+        }
+
+        function deleteBbox(index) {
+            currentBboxes.splice(index, 1);
+            if (selectedBboxIndex === index) {
+                selectedBboxIndex = -1;
+            } else if (selectedBboxIndex > index) {
+                selectedBboxIndex--;
+            }
+            saveCurrentAnnotation();
+            redrawCanvas();
+            updateBboxList();
+        }
+
+        function updateBboxList() {
+            const list = document.getElementById('bboxList');
+            const count = document.getElementById('bboxCount');
+
+            count.textContent = currentBboxes.length;
+            list.innerHTML = '';
+
+            currentBboxes.forEach((bbox, idx) => {
+                const div = document.createElement('div');
+                div.className = 'bbox-item';
+                div.innerHTML = `
+                    <div class="bbox-info">
+                        <div class="bbox-class">${bbox.class}</div>
+                        <div class="bbox-coords">
+                            x:${Math.round(bbox.x)}, y:${Math.round(bbox.y)},
+                            w:${Math.round(bbox.width)}, h:${Math.round(bbox.height)}
+                        </div>
+                    </div>
+                    <button class="bbox-delete" onclick="deleteBbox(${idx})">Delete</button>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        async function saveCurrentAnnotation() {
+            if (!images[currentIndex]) return;
+
+            const imageName = images[currentIndex];
+
+            try {
+                await fetch(`/api/annotation/${imageName}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({bboxes: currentBboxes})
+                });
+                updateStats();
+            } catch (error) {
+                console.error('Failed to save annotation:', error);
+            }
+        }
+
+        async function saveAll() {
+            try {
+                const res = await fetch('/api/save-all', {method: 'POST'});
+                const data = await res.json();
+                alert(data.message);
+            } catch (error) {
+                console.error('Failed to save:', error);
+                alert('Failed to save annotations');
+            }
+        }
+
+        async function updateStats() {
+            try {
+                const res = await fetch('/api/annotations');
+                const data = await res.json();
+                const annotated = Object.keys(data.images).length;
+                const total = images.length;
+                document.getElementById('stats').textContent =
+                    `📊 Annotated: ${annotated} / ${total} images`;
+            } catch (error) {
+                console.error('Failed to update stats:', error);
+            }
+        }
+
+        function previousImage() {
+            if (currentIndex > 0) {
+                loadImage(currentIndex - 1);
+            }
+        }
+
+        function nextImage() {
+            if (currentIndex < images.length - 1) {
+                loadImage(currentIndex + 1);
+            }
+        }
+
+        function updateConfidence() {
+            const slider = document.getElementById('confidenceSlider');
+            const valueDisplay = document.getElementById('confidenceValue');
+            confidenceThreshold = parseInt(slider.value) / 100;
+            valueDisplay.textContent = slider.value + '%';
+        }
+
+        async function reloadDetections() {
+            if (liveDetectionEnabled) {
+                await loadDetections();
+            }
+        }
+
+        async function toggleLiveDetection() {
+            const checkbox = document.getElementById('liveDetectionCheckbox');
+            const statusDiv = document.getElementById('detectionStatus');
+            const sliderContainer = document.getElementById('confidenceSliderContainer');
+
+            liveDetectionEnabled = checkbox.checked;
+
+            if (liveDetectionEnabled) {
+                if (!config.model_available) {
+                    statusDiv.style.display = 'block';
+                    statusDiv.textContent = '⚠️ Model not found. Train first: python train.py';
+                    statusDiv.style.color = '#e74c3c';
+                    checkbox.checked = false;
+                    liveDetectionEnabled = false;
+                    return;
+                }
+
+                sliderContainer.style.display = 'block';
+                statusDiv.style.display = 'block';
+                statusDiv.textContent = 'Loading detections...';
+                statusDiv.style.color = '#666';
+                await loadDetections();
+            } else {
+                sliderContainer.style.display = 'none';
+                detectionOverlayImage = null;
+                statusDiv.style.display = 'none';
+                redrawCanvas();
+            }
+        }
+
+        async function loadDetections() {
+            if (!liveDetectionEnabled || !images[currentIndex]) return;
+
+            const statusDiv = document.getElementById('detectionStatus');
+
+            try {
+                const imageName = images[currentIndex];
+                const res = await fetch(`/api/predict/${imageName}?conf=${confidenceThreshold}`);
+                const data = await res.json();
+
+                if (data.image && liveDetectionEnabled) {
+                    // Create image from base64
+                    const img = new Image();
+                    img.onload = () => {
+                        if (liveDetectionEnabled) {
+                            detectionOverlayImage = img;
+                            redrawCanvas();
+                            statusDiv.textContent = `Detected ${data.predictions?.length || 0} objects`;
+                            statusDiv.style.color = '#27ae60';
+                        }
+                    };
+                    img.src = `data:image/png;base64,${data.image}`;
+                } else {
+                    statusDiv.textContent = data.error || 'No detections';
+                    statusDiv.style.color = '#e74c3c';
+                }
+            } catch (error) {
+                console.error('Failed to load detections:', error);
+                statusDiv.textContent = 'Error loading detections';
+                statusDiv.style.color = '#e74c3c';
+            }
+        }
+
+        async function showPredictions() {
+            const overlay = document.getElementById('predictionOverlay');
+            overlay.classList.add('visible');
+            overlay.innerHTML = '<div class="loading-spinner"></div>';
+
+            try {
+                const imageName = images[currentIndex];
+                const res = await fetch(`/api/predict/${imageName}`);
+                const data = await res.json();
+
+                if (data.image) {
+                    overlay.innerHTML = `<img src="data:image/png;base64,${data.image}" alt="Predictions">`;
+
+                    // Auto-hide after 5 seconds
+                    setTimeout(() => {
+                        overlay.classList.remove('visible');
+                    }, 5000);
+                } else {
+                    overlay.innerHTML = '<div style="color: red;">' + (data.error || 'Failed to load predictions') + '</div>';
+                }
+            } catch (error) {
+                console.error('Failed to load predictions:', error);
+                overlay.innerHTML = '<div style="color: red;">Error loading predictions</div>';
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ignore if typing in input field
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                return;
+            }
+
+            const key = e.key.toLowerCase();
+
+            if (e.key === 'ArrowLeft' || key === 'p') {
+                e.preventDefault();
+                previousImage();
+            } else if (e.key === 'ArrowRight' || key === 'n') {
+                e.preventDefault();
+                nextImage();
+            } else if (e.key === 'Escape') {
+                // Hide prediction overlay or deselect box
+                document.getElementById('predictionOverlay').classList.remove('visible');
+                if (selectedBboxIndex !== -1) {
+                    selectedBboxIndex = -1;
+                    redrawCanvas();
+                }
+            } else if (e.key >= '1' && e.key <= '9') {
+                // Quick class selection
+                e.preventDefault();
+                const idx = parseInt(e.key) - 1;
+                if (idx < config.classes.length) {
+                    selectClass(config.classes[idx]);
+                }
+            } else if (e.key === 'Delete' || e.key === 'Backspace') {
+                // Delete selected bbox
+                if (selectedBboxIndex !== -1) {
+                    e.preventDefault();
+                    deleteBbox(selectedBboxIndex);
+                }
+            }
+        });
+
+        // Start the app
+        init();
+    </script>
+</body>
+</html>

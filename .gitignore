@@ -1,0 +1,60 @@
+# Large data files - do not commit
+output/*.pth
+output/*.png
+output/yolox_custom/
+output/train/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Jupyter notebooks
+*.ipynb_checkpoints
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Temporary files
+*.zip
+*.tar.gz
+reduce_images.py
+fix_annotations.py
+fix_all_annotations.py
+
+# Generated YOLO dataset
+data/yolo/
+
+# YOLO/YOLOX training outputs and downloaded models
+YOLOX_outputs/
+YOLOv8/
+yolox/
+exps/
+
+# Temporary test/memory scripts
+check_memory.py
+cleanup_annotations.py
+evaluate.py
+memory_profiler.py
+test_memory_fix.sh
+train_ultralytics_backup.py
+yolox_dataset.py
+yolox_inference.py
+
+# Keep structure but not content
+!data/annotations/.gitkeep
+!input/.gitkeep
+!output/.gitkeep

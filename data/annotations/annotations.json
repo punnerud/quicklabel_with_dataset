@@ -1,0 +1,5366 @@
+{
+  "classes": [
+    "bryter",
+    "stikkontakt",
+    "elsparkesykkel",
+    "sluk",
+    "kumlokk"
+  ],
+  "images": {
+    "IMG_7039.jpg": {
+      "path": "input/IMG_7039.jpg",
+      "classes": [
+        "blank"
+      ],
+      "primary_class": "blank",
+      "counts": {
+        "blank": 1,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7043.jpg": {
+      "path": "input/IMG_7043.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 609.5131270078565,
+          "y": 892.7332552861069,
+          "width": 125.58078819300874,
+          "height": 157.83129375223984
+        },
+        {
+          "class": "stikkontakt",
+          "x": 762.17996755622,
+          "y": 942.0555345836817,
+          "width": 135.43026177677405,
+          "height": 180.0263194361487
+        }
+      ]
+    },
+    "IMG_7044.jpg": {
+      "path": "input/IMG_7044.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 705.5454944495691,
+          "y": 909.9960530402581,
+          "width": 152.66684054836344,
+          "height": 189.8907752956635
+        },
+        {
+          "class": "stikkontakt",
+          "x": 518.4054963580268,
+          "y": 848.3432039182893,
+          "width": 155.12920894430488,
+          "height": 170.16186357663355
+        }
+      ]
+    },
+    "IMG_7045.jpg": {
+      "path": "input/IMG_7045.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 481.4699704189065,
+          "y": 838.4787480587743,
+          "width": 164.97868252807024,
+          "height": 199.75523115517854
+        },
+        {
+          "class": "stikkontakt",
+          "x": 703.0831260536277,
+          "y": 912.4621670051367,
+          "width": 162.51631413212897,
+          "height": 209.61968701469368
+        }
+      ]
+    },
+    "IMG_7046.jpg": {
+      "path": "input/IMG_7046.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 799.1154934953403,
+          "y": 1033.3017512841955,
+          "width": 174.8281561118356,
+          "height": 219.4841428742086
+        },
+        {
+          "class": "stikkontakt",
+          "x": 545.4915487133816,
+          "y": 959.3183323378329,
+          "width": 179.75289290371836,
+          "height": 192.3568892605423
+        }
+      ]
+    },
+    "IMG_7047.jpg": {
+      "path": "input/IMG_7047.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 528.5948280797736,
+          "y": 814.0231179070602,
+          "width": 1070.9250548681575,
+          "height": 1027.1364663719992
+        }
+      ]
+    },
+    "IMG_7048.jpg": {
+      "path": "input/IMG_7048.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 12.318254397404417,
+          "y": 807.0357950065704,
+          "width": 1744.1776137917873,
+          "height": 1945.9694277864057
+        }
+      ]
+    },
+    "IMG_7049.jpg": {
+      "path": "input/IMG_7049.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 640.2221953624479,
+          "y": 1299.6420594911,
+          "width": 645.3457171029612,
+          "height": 447.18866563134634
+        }
+      ]
+    },
+    "IMG_7050.jpg": {
+      "path": "input/IMG_7050.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 807.6632462864595,
+          "y": 953.769575916856,
+          "width": 1137.2038041922451,
+          "height": 779.086503404611
+        }
+      ]
+    },
+    "IMG_7051.jpg": {
+      "path": "input/IMG_7051.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 397.7494449569007,
+          "y": 764.4953291124118,
+          "width": 502.32315277203475,
+          "height": 268.80642217178377
+        }
+      ]
+    },
+    "IMG_7040.jpg": {
+      "path": "input/IMG_7040.jpg",
+      "classes": [
+        "blank"
+      ],
+      "primary_class": "blank",
+      "counts": {
+        "blank": 1,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7041.jpg": {
+      "path": "input/IMG_7041.jpg",
+      "classes": [
+        "blank"
+      ],
+      "primary_class": "blank",
+      "counts": {
+        "blank": 1,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7042.jpg": {
+      "path": "input/IMG_7042.jpg",
+      "classes": [
+        "blank"
+      ],
+      "primary_class": "blank",
+      "counts": {
+        "blank": 1,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7052.jpg": {
+      "path": "input/IMG_7052.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 547.9539171093229,
+          "y": 786.6903547963207,
+          "width": 677.1513088838703,
+          "height": 416.77326006450835
+        }
+      ]
+    },
+    "IMG_7053.jpg": {
+      "path": "input/IMG_7053.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 210.60944686535842,
+          "y": 897.6654832158644,
+          "width": 903.6892013104743,
+          "height": 653.5202006928681
+        }
+      ]
+    },
+    "IMG_7054.jpg": {
+      "path": "input/IMG_7054.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 538.1044435255574,
+          "y": 670.7829984470195,
+          "width": 728.8610451986387,
+          "height": 399.51046231035707
+        }
+      ]
+    },
+    "IMG_7055.jpg": {
+      "path": "input/IMG_7055.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 501.1689175864372,
+          "y": 794.0886966909572,
+          "width": 874.1407805591778,
+          "height": 535.1467303786881
+        }
+      ]
+    },
+    "IMG_7056.jpg": {
+      "path": "input/IMG_7056.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 314.0289194948949,
+          "y": 688.0457962011708,
+          "width": 460.46289004103187,
+          "height": 172.62797754151234
+        },
+        {
+          "class": "sluk",
+          "x": 789.2660199115751,
+          "y": 774.359784971927,
+          "width": 487.5489423963868,
+          "height": 182.49243340102737
+        }
+      ]
+    },
+    "IMG_7057.jpg": {
+      "path": "input/IMG_7057.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 730.1691784089825,
+          "y": 838.4787480587743,
+          "width": 620.5168357772195,
+          "height": 268.8064221717834
+        },
+        {
+          "class": "kumlokk",
+          "x": 151.51260536276607,
+          "y": 705.308593955322,
+          "width": 563.8823626705685,
+          "height": 251.54362441763237
+        }
+      ]
+    },
+    "IMG_7058.jpg": {
+      "path": "input/IMG_7058.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 21.007080377874615,
+          "y": 813.8176084099867,
+          "width": 751.0223607621109,
+          "height": 382.2476645562059
+        },
+        {
+          "class": "sluk",
+          "x": 842.2357963039537,
+          "y": 986.4455859514991,
+          "width": 669.7642036960463,
+          "height": 421.70548799426604
+        }
+      ]
+    },
+    "IMG_7059.jpg": {
+      "path": "input/IMG_7059.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 424.8354973122556,
+          "y": 369.9170947318122,
+          "width": 642.6781513406917,
+          "height": 283.60310596105603
+        }
+      ]
+    },
+    "IMG_7060.jpg": {
+      "path": "input/IMG_7060.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 267.2439199720093,
+          "y": 614.0623772548082,
+          "width": 790.4202550971725,
+          "height": 421.7054879942659
+        }
+      ]
+    },
+    "IMG_7061.jpg": {
+      "path": "input/IMG_7061.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 193.37286809376906,
+          "y": 882.8687994265917,
+          "width": 984.9473583765387,
+          "height": 690.5119101660493
+        }
+      ]
+    },
+    "IMG_7062.jpg": {
+      "path": "input/IMG_7062.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "height": 271.2725361366623,
+          "width": 664.8394669041636,
+          "x": 213.07181526129978,
+          "y": 591.8673515708995
+        },
+        {
+          "class": "kumlokk",
+          "x": 767.1047043481028,
+          "y": 125.77181220881614,
+          "width": 379.2047329749673,
+          "height": 123.30569824393741
+        }
+      ]
+    },
+    "IMG_7063.jpg": {
+      "path": "input/IMG_7063.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 67.7920799007602,
+          "y": 493.2227929757496,
+          "width": 805.1944654728203,
+          "height": 409.3749181698722
+        }
+      ]
+    },
+    "IMG_7064.jpg": {
+      "path": "input/IMG_7064.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 163.8244473424728,
+          "y": 1080.1579166168915,
+          "width": 1258.2702503260284,
+          "height": 880.4026854617132
+        },
+        {
+          "class": "kumlokk",
+          "x": 1359.3331594516364,
+          "y": 27.127253613666227,
+          "width": 152.66684054836355,
+          "height": 221.95025683908733
+        }
+      ]
+    },
+    "IMG_7065.jpg": {
+      "path": "input/IMG_7065.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 432.2226025000796,
+          "y": 231.8147126986023,
+          "width": 802.7320970768792,
+          "height": 382.2476645562059
+        }
+      ]
+    },
+    "IMG_7066 2.jpg": {
+      "path": "input/IMG_7066 2.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 309.10418270301216,
+          "y": 525.2822745191733,
+          "width": 925.8505168739466,
+          "height": 515.4178186596583
+        }
+      ]
+    },
+    "IMG_7067.jpg": {
+      "path": "input/IMG_7067.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": -3.616603581538853,
+          "y": 702.8424799904432,
+          "width": 1100.678672985782,
+          "height": 769.4275570421695
+        }
+      ]
+    },
+    "IMG_7068.jpg": {
+      "path": "input/IMG_7068.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 496.24418079455455,
+          "y": 303.332017680086,
+          "width": 783.0331499093484,
+          "height": 406.90880420499343
+        }
+      ]
+    },
+    "IMG_7069.jpg": {
+      "path": "input/IMG_7069.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 589.8141798403258,
+          "y": 517.8839326245371,
+          "width": 901.2268329145329,
+          "height": 586.935123641142
+        }
+      ]
+    },
+    "IMG_7070.jpg": {
+      "path": "input/IMG_7070.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "height": 64.11896308684743,
+          "width": 187.13999809154245,
+          "x": 818.814440662871,
+          "y": 641.1896308684745
+        },
+        {
+          "class": "sluk",
+          "x": 565.1904958809123,
+          "y": 766.9614430772906,
+          "width": 145.27973536053946,
+          "height": 86.31398877075617
+        }
+      ]
+    },
+    "IMG_7071.jpg": {
+      "path": "input/IMG_7071.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "height": 73.98341894636246,
+          "width": 182.21526129965957,
+          "x": 900.0725977289354,
+          "y": 715.173049814837
+        },
+        {
+          "class": "sluk",
+          "x": 565.1904958809122,
+          "y": 885.3349133914705,
+          "width": 167.44105092401162,
+          "height": 98.64455859514987
+        }
+      ]
+    },
+    "IMG_7072.jpg": {
+      "path": "input/IMG_7072.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 496.24418079455455,
+          "y": 900.131597180743,
+          "width": 196.98947167530793,
+          "height": 115.90735634930093
+        },
+        {
+          "class": "kumlokk",
+          "x": 904.9973345208182,
+          "y": 673.2491124118982,
+          "width": 187.13999809154234,
+          "height": 81.38176084099871
+        }
+      ]
+    },
+    "IMG_7073.jpg": {
+      "path": "input/IMG_7073.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1015.8039123381789,
+          "y": 727.5036196392306,
+          "width": 233.92499761442787,
+          "height": 106.04290048978623
+        },
+        {
+          "class": "sluk",
+          "x": 412.5236553325488,
+          "y": 1062.8951188627404,
+          "width": 295.48420751296163,
+          "height": 207.15357304981467
+        }
+      ]
+    },
+    "IMG_7074.jpg": {
+      "path": "input/IMG_7074.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 247.54497280447853,
+          "y": 1235.5230964042528,
+          "width": 359.5057858074366,
+          "height": 308.26424560984356
+        },
+        {
+          "class": "kumlokk",
+          "x": 986.2554915868827,
+          "y": 742.3003034285031,
+          "width": 337.34447024396445,
+          "height": 160.29740771711863
+        }
+      ]
+    },
+    "IMG_7075.jpg": {
+      "path": "input/IMG_7075.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 821.2768090588122,
+          "y": 902.5977111456218,
+          "width": 465.38762683291475,
+          "height": 291.0014478556923
+        }
+      ]
+    },
+    "IMG_7076.jpg": {
+      "path": "input/IMG_7076.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 476.5452336270238,
+          "y": 1191.1330450364353,
+          "width": 635.2910461528676,
+          "height": 591.8673515708995
+        }
+      ]
+    },
+    "IMG_7077.jpg": {
+      "path": "input/IMG_7077.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 799.1154934953403,
+          "y": 665.850770517262,
+          "width": 150.2044721524221,
+          "height": 64.11896308684732
+        }
+      ]
+    },
+    "IMG_7078.jpg": {
+      "path": "input/IMG_7078.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 762.17996755622,
+          "y": 618.9946051845658,
+          "width": 172.36578771589427,
+          "height": 96.17844463027109
+        }
+      ]
+    },
+    "IMG_7079.jpg": {
+      "path": "input/IMG_7079.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 762.17996755622,
+          "y": 695.4441380958069,
+          "width": 201.9142084671904,
+          "height": 120.83958427905873
+        }
+      ]
+    },
+    "IMG_7080.jpg": {
+      "path": "input/IMG_7080.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 801.5778618912816,
+          "y": 771.8936710070482,
+          "width": 211.76368205095582,
+          "height": 147.9668378927248
+        }
+      ]
+    },
+    "IMG_7081.jpg": {
+      "path": "input/IMG_7081.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 653.8357581348008,
+          "y": 954.3861044080754,
+          "width": 275.78526034543086,
+          "height": 189.89077529566362
+        }
+      ]
+    },
+    "IMG_7082.jpg": {
+      "path": "input/IMG_7082.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 616.9002321956806,
+          "y": 1072.7595747222554,
+          "width": 322.5702598683164,
+          "height": 266.34030820690487
+        }
+      ]
+    },
+    "IMG_7083.jpg": {
+      "path": "input/IMG_7083.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "height": 1201.8195388842432,
+          "width": 659.2991380132956,
+          "x": 744.8728521899551,
+          "y": 485.6189415840401
+        }
+      ]
+    },
+    "IMG_7084.jpg": {
+      "path": "input/IMG_7084.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 790.2214701485416,
+          "y": 779.0865034046112,
+          "width": 582.555323006457,
+          "height": 1076.0477266754272
+        }
+      ]
+    },
+    "IMG_7085.jpg": {
+      "path": "input/IMG_7085.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 804.1748910588758,
+          "y": 782.5801648548561,
+          "width": 432.5560482203632,
+          "height": 1055.085757973958
+        }
+      ]
+    },
+    "IMG_7086.jpg": {
+      "path": "input/IMG_7086.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 500.68798625910495,
+          "y": 754.6308732528969,
+          "width": 373.2540093514425,
+          "height": 1002.6808362202844
+        }
+      ]
+    },
+    "IMG_7087.jpg": {
+      "path": "input/IMG_7087.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "height": 492.60626448453,
+          "width": 184.88282706192956,
+          "x": 877.430350838131,
+          "y": 758.1245347031419
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1229.754228824072,
+          "y": 765.1118576036316,
+          "width": 149.9992747860938,
+          "height": 436.70768128061184
+        }
+      ]
+    },
+    "IMG_7088.jpg": {
+      "path": "input/IMG_7088.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 734.4077865072044,
+          "y": 716.2005973002031,
+          "width": 195.34789274468017,
+          "height": 534.5302018874688
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1125.1035719965648,
+          "y": 695.2386285987337,
+          "width": 195.34789274468017,
+          "height": 510.0745717357544
+        }
+      ]
+    },
+    "IMG_7089.jpg": {
+      "path": "input/IMG_7089.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 626.2687744521136,
+          "y": 572.9604778401625,
+          "width": 254.64993161360098,
+          "height": 593.9224465416318
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1097.1967301758962,
+          "y": 538.0238633377136,
+          "width": 209.30131365501438,
+          "height": 565.9731549396728
+        }
+      ]
+    },
+    "IMG_7090.jpg": {
+      "path": "input/IMG_7090.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 280.92160692133973,
+          "y": 621.871738143591,
+          "width": 313.9519704825217,
+          "height": 698.7322900489786
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 853.011864245046,
+          "y": 590.428785091387,
+          "width": 226.7430897929322,
+          "height": 618.378076693346
+        }
+      ]
+    },
+    "IMG_7091.jpg": {
+      "path": "input/IMG_7091.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": -5.123521740513375,
+          "y": 646.3273682953053,
+          "width": 289.53348388943664,
+          "height": 821.0104408075498
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 587.8968669486943,
+          "y": 597.4161079918767,
+          "width": 286.04512866185314,
+          "height": 709.2132743997133
+        }
+      ]
+    },
+    "IMG_7092.jpg": {
+      "path": "input/IMG_7092.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": -5.123521740513375,
+          "y": 496.09992593477483,
+          "width": 320.92868093768885,
+          "height": 237.5689786166527
+        },
+        {
+          "class": "sluk",
+          "x": 1013.4762047138904,
+          "y": 674.2766598972644,
+          "width": 1126.7387385094946,
+          "height": 314.4295305220404
+        }
+      ]
+    },
+    "IMG_7093.jpg": {
+      "path": "input/IMG_7093.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 1079.7549540379782,
+          "y": 943.2885915661212,
+          "width": 1063.9483444129905,
+          "height": 576.4541392904074
+        }
+      ]
+    },
+    "IMG_7094.jpg": {
+      "path": "input/IMG_7094.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 5.341543942237348,
+          "y": 890.8836698124478,
+          "width": 2134.8733992811476,
+          "height": 1205.313200334488
+        }
+      ]
+    },
+    "IMG_7095.jpg": {
+      "path": "input/IMG_7095.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": -5.123521740513375,
+          "y": 786.073826305101,
+          "width": 1227.901040109418,
+          "height": 289.9739003703262
+        }
+      ]
+    },
+    "IMG_7096.jpg": {
+      "path": "input/IMG_7096.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": -15.588587423264098,
+          "y": 831.4914251582846,
+          "width": 1691.8522853780335,
+          "height": 440.2013427308565
+        }
+      ]
+    },
+    "IMG_7097.jpg": {
+      "path": "input/IMG_7097.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 8.829899169820923,
+          "y": 1229.7688304862024,
+          "width": 2131.385044053564,
+          "height": 939.7949301158762
+        }
+      ]
+    },
+    "IMG_7098.jpg": {
+      "path": "input/IMG_7098.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": -5.123521740513375,
+          "y": 468.1506343328157,
+          "width": 2138.361754508731,
+          "height": 1753.8180480229366
+        }
+      ]
+    },
+    "IMG_7099.jpg": {
+      "path": "input/IMG_7099.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 1.853188714653774,
+          "y": 681.2639827977542,
+          "width": 2061.6179395018926,
+          "height": 2173.0574220523235
+        }
+      ]
+    },
+    "IMG_7100.jpg": {
+      "path": "input/IMG_7100.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 15.806609624988072,
+          "y": 1631.5398972643652,
+          "width": 362.78894366869173,
+          "height": 129.26547365906094
+        },
+        {
+          "class": "sluk",
+          "x": 420.4558160246827,
+          "y": 1261.2117835384065,
+          "width": 1276.7380132955884,
+          "height": 436.7076812806117
+        },
+        {
+          "class": "sluk",
+          "x": 1714.6356054581888,
+          "y": 1030.6301278222436,
+          "width": 303.4869047997711,
+          "height": 251.54362441763215
+        },
+        {
+          "class": "sluk",
+          "x": 1937.8903400235376,
+          "y": 880.4026854617131,
+          "width": 69.76710455167154,
+          "height": 157.21476526102026
+        }
+      ]
+    },
+    "IMG_7101.jpg": {
+      "path": "input/IMG_7101.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": -5.123521740513375,
+          "y": 1806.2229697766097,
+          "width": 160.46434046884443,
+          "height": 111.79716640783658
+        },
+        {
+          "class": "sluk",
+          "x": 162.3175291834982,
+          "y": 1233.2624919364473,
+          "width": 1632.5502465091129,
+          "height": 635.8463839445706
+        },
+        {
+          "class": "sluk",
+          "x": 1826.2629727408632,
+          "y": 981.718867518815,
+          "width": 324.4170361652725,
+          "height": 314.4295305220404
+        }
+      ]
+    },
+    "IMG_7102.jpg": {
+      "path": "input/IMG_7102.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": -5.123521740513375,
+          "y": 1467.337809102855,
+          "width": 1356.9701835300104,
+          "height": 761.6181961533869
+        },
+        {
+          "class": "sluk",
+          "x": 1372.7767931549986,
+          "y": 971.2378831680803,
+          "width": 516.276573682369,
+          "height": 569.4668163899175
+        },
+        {
+          "class": "sluk",
+          "x": 1766.9609338719424,
+          "y": 730.1752431011827,
+          "width": 118.60407773784164,
+          "height": 244.55630151714251
+        }
+      ]
+    },
+    "IMG_7103.jpg": {
+      "path": "input/IMG_7103.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "height": 1006.1744976705295,
+          "width": 1325.5749864817583,
+          "x": -5.123521740513375,
+          "y": 1806.2229697766097
+        },
+        {
+          "class": "sluk",
+          "height": 1009.6681591207741,
+          "width": 697.6710455167149,
+          "x": 1428.5904767963357,
+          "y": 887.3900083622029
+        },
+        {
+          "class": "sluk",
+          "height": 338.8851606737546,
+          "width": 146.51091955850984,
+          "x": 1976.262247526957,
+          "y": 555.492170588938
+        }
+      ]
+    },
+    "IMG_7104.jpg": {
+      "path": "input/IMG_7104.jpg",
+      "classes": [
+        "sluk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 4,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7105.jpg": {
+      "path": "input/IMG_7105.jpg",
+      "classes": [
+        "sluk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 3,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7106.jpg": {
+      "path": "input/IMG_7106.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 905.3371926587995,
+          "y": 572.9604778401625,
+          "width": 401.16085117211105,
+          "height": 1142.42729423008
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1665.7986322720187,
+          "y": 380.8090980766934,
+          "width": 320.928680937689,
+          "height": 520.5555560864891
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 2039.0526416234613,
+          "y": 282.98657746983633,
+          "width": 101.1623015999237,
+          "height": 275.9992545693466
+        }
+      ]
+    },
+    "IMG_7107.jpg": {
+      "path": "input/IMG_7107.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 692.5475237762015,
+          "y": 670.7829984470195,
+          "width": 446.50946913069754,
+          "height": 1404.4519029984472
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1693.7054740926874,
+          "y": 436.70768128061167,
+          "width": 369.7656541238589,
+          "height": 579.9478007406524
+        }
+      ]
+    },
+    "IMG_7108.jpg": {
+      "path": "input/IMG_7108.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 427.43252647984986,
+          "y": 765.1118576036316,
+          "width": 540.6950602754541,
+          "height": 1659.4891888663246
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1620.4500143134323,
+          "y": 461.16331143232594,
+          "width": 519.7649289099529,
+          "height": 597.4161079918766
+        }
+      ]
+    },
+    "IMG_7109.jpg": {
+      "path": "input/IMG_7109.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": -5.123521740513375,
+          "y": 1652.5018659658344,
+          "width": 279.0684182066859,
+          "height": 1177.3639087325291
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1334.4048856515792,
+          "y": 321.4168534225301,
+          "width": 540.6950602754541,
+          "height": 628.8590610440808
+        }
+      ]
+    },
+    "IMG_7110.jpg": {
+      "path": "input/IMG_7110.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 1079.7549540379782,
+          "y": 412.2520511288974,
+          "width": 565.1135468685391,
+          "height": 793.0611492055907
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1934.4019847959541,
+          "y": 338.8851606737546,
+          "width": 205.81295842743089,
+          "height": 300.4548847210608
+        }
+      ]
+    },
+    "IMG_7111.jpg": {
+      "path": "input/IMG_7111.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 908.8255478863831,
+          "y": 443.69500418110147,
+          "width": 596.5087439167913,
+          "height": 831.4914251582845
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1756.4958681891917,
+          "y": 272.50559311910166,
+          "width": 366.27729889627517,
+          "height": 342.37882212399956
+        }
+      ]
+    },
+    "IMG_7112.jpg": {
+      "path": "input/IMG_7112.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 765.8029835554566,
+          "y": 524.049217536734,
+          "width": 648.8340723305448,
+          "height": 929.3139457651416
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1787.8910652374439,
+          "y": 269.0119316688568,
+          "width": 352.3238779859412,
+          "height": 352.85980647473417
+        }
+      ]
+    },
+    "IMG_7113.jpg": {
+      "path": "input/IMG_7113.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 462.3160787556856,
+          "y": 468.1506343328157,
+          "width": 805.8100575718058,
+          "height": 1166.8829243817945
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1843.7047488787812,
+          "y": 178.17673396248955,
+          "width": 296.51019434460386,
+          "height": 398.27740532791785
+        }
+      ]
+    },
+    "IMG_7114.jpg": {
+      "path": "input/IMG_7114.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 113.48055599732815,
+          "y": 548.5048476884482,
+          "width": 941.8559114475652,
+          "height": 1317.110366742325
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1875.0999459270333,
+          "y": 185.16405686297935,
+          "width": 265.1149972963517,
+          "height": 482.1252801337953
+        }
+      ]
+    },
+    "IMG_7115.jpg": {
+      "path": "input/IMG_7115.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 776.2680492382074,
+          "y": 698.7322900489787,
+          "width": 467.43960049619886,
+          "height": 593.9224465416319
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1163.4754794999842,
+          "y": 660.3020140962848,
+          "width": 279.0684182066859,
+          "height": 429.72035838012187
+        }
+      ]
+    },
+    "IMG_7116.jpg": {
+      "path": "input/IMG_7116.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 709.9892999141194,
+          "y": 841.9724095090194,
+          "width": 575.5786125512898,
+          "height": 621.8717381435911
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1149.5220585896498,
+          "y": 695.2386285987337,
+          "width": 369.7656541238589,
+          "height": 471.64429578306056
+        }
+      ]
+    },
+    "IMG_7117.jpg": {
+      "path": "input/IMG_7117.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 671.6173924107002,
+          "y": 845.4660709592642,
+          "width": 652.3224275581284,
+          "height": 705.7196129494685
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1261.1494258723242,
+          "y": 695.2386285987337,
+          "width": 376.7423645790261,
+          "height": 513.5682331859992
+        }
+      ]
+    },
+    "IMG_7118.jpg": {
+      "path": "input/IMG_7118.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 319.29351442475905,
+          "y": 855.9470553099989,
+          "width": 802.3217023442221,
+          "height": 873.4153625612232
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1142.5453481344825,
+          "y": 681.2639827977542,
+          "width": 422.0909825376127,
+          "height": 604.4034308923664
+        }
+      ]
+    },
+    "IMG_7119.jpg": {
+      "path": "input/IMG_7119.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": -5.123521740513375,
+          "y": 1083.035049575917,
+          "width": 847.6703203028086,
+          "height": 1009.6681591207741
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 898.3604822036324,
+          "y": 723.1879202006929,
+          "width": 554.6484811857885,
+          "height": 625.3653995938358
+        }
+      ]
+    },
+    "IMG_7120.jpg": {
+      "path": "input/IMG_7120.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 668.1290371831165,
+          "y": 827.9977637080397,
+          "width": 641.8573618753778,
+          "height": 723.187920200693
+        }
+      ]
+    },
+    "IMG_7121.jpg": {
+      "path": "input/IMG_7121.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 385.572263748847,
+          "y": 953.7695759168558,
+          "width": 763.9497948408027,
+          "height": 827.9977637080398
+        }
+      ]
+    },
+    "IMG_7122.jpg": {
+      "path": "input/IMG_7122.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 828.593377651961,
+          "y": 625.365399593836,
+          "width": 568.6019020961226,
+          "height": 282.98657746983633
+        }
+      ]
+    },
+    "IMG_7123.jpg": {
+      "path": "input/IMG_7123.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 675.1057476382837,
+          "y": 723.1879202006929,
+          "width": 627.9039409650434,
+          "height": 377.31543662644856
+        }
+      ]
+    },
+    "IMG_7124.jpg": {
+      "path": "input/IMG_7124.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 758.8262731002894,
+          "y": 782.5801648548561,
+          "width": 819.76347848214,
+          "height": 607.8970923426114
+        }
+      ]
+    },
+    "IMG_7125.jpg": {
+      "path": "input/IMG_7125.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 594.8735774038614,
+          "y": 1034.1237892724885,
+          "width": 1039.5298578199051,
+          "height": 667.2893369967746
+        }
+      ]
+    },
+    "IMG_7126.jpg": {
+      "path": "input/IMG_7126.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7127.jpg": {
+      "path": "input/IMG_7127.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7128.jpg": {
+      "path": "input/IMG_7128.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7129.jpg": {
+      "path": "input/IMG_7129.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7130.jpg": {
+      "path": "input/IMG_7130.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7131.jpg": {
+      "path": "input/IMG_7131.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7132.jpg": {
+      "path": "input/IMG_7132.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7133.jpg": {
+      "path": "input/IMG_7133.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 1
+      }
+    },
+    "IMG_7134.jpg": {
+      "path": "input/IMG_7134.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7135.jpg": {
+      "path": "input/IMG_7135.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7136.jpg": {
+      "path": "input/IMG_7136.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7137.jpg": {
+      "path": "input/IMG_7137.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7138.jpg": {
+      "path": "input/IMG_7138.jpg",
+      "classes": [
+        "sluk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 1,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7139.jpg": {
+      "path": "input/IMG_7139.jpg",
+      "classes": [
+        "sluk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 1,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7140.jpg": {
+      "path": "input/IMG_7140.jpg",
+      "classes": [
+        "sluk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 1,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7141.jpg": {
+      "path": "input/IMG_7141.jpg",
+      "classes": [
+        "sluk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 1,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7142.jpg": {
+      "path": "input/IMG_7142.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7143.jpg": {
+      "path": "input/IMG_7143.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7144.jpg": {
+      "path": "input/IMG_7144.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7145.jpg": {
+      "path": "input/IMG_7145.jpg",
+      "classes": [
+        "elsparkesykkel",
+        "kumlokk"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 1
+      }
+    },
+    "IMG_7146.jpg": {
+      "path": "input/IMG_7146.jpg",
+      "classes": [
+        "elsparkesykkel",
+        "kumlokk"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 1
+      }
+    },
+    "IMG_7147.jpg": {
+      "path": "input/IMG_7147.jpg",
+      "classes": [
+        "sluk",
+        "kumlokk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 1,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7148.jpg": {
+      "path": "input/IMG_7148.jpg",
+      "classes": [
+        "sluk",
+        "kumlokk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 1,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7149.jpg": {
+      "path": "input/IMG_7149.jpg",
+      "classes": [
+        "sluk",
+        "kumlokk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 1,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7150.jpg": {
+      "path": "input/IMG_7150.jpg",
+      "classes": [
+        "sluk",
+        "kumlokk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 1,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7151.jpg": {
+      "path": "input/IMG_7151.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7152.jpg": {
+      "path": "input/IMG_7152.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7153.jpg": {
+      "path": "input/IMG_7153.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7154.jpg": {
+      "path": "input/IMG_7154.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7155.jpg": {
+      "path": "input/IMG_7155.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7156.jpg": {
+      "path": "input/IMG_7156.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 3,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7157.jpg": {
+      "path": "input/IMG_7157.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 3,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7158.jpg": {
+      "path": "input/IMG_7158.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 3,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7159.jpg": {
+      "path": "input/IMG_7159.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7160.jpg": {
+      "path": "input/IMG_7160.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7161.jpg": {
+      "path": "input/IMG_7161.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7162.jpg": {
+      "path": "input/IMG_7162.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7163.jpg": {
+      "path": "input/IMG_7163.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7164.jpg": {
+      "path": "input/IMG_7164.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7165.jpg": {
+      "path": "input/IMG_7165.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7166.jpg": {
+      "path": "input/IMG_7166.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7167.jpg": {
+      "path": "input/IMG_7167.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7168.jpg": {
+      "path": "input/IMG_7168.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7169.jpg": {
+      "path": "input/IMG_7169.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7170.jpg": {
+      "path": "input/IMG_7170.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7171.jpg": {
+      "path": "input/IMG_7171.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7172.jpg": {
+      "path": "input/IMG_7172.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7173.jpg": {
+      "path": "input/IMG_7173.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7174.jpg": {
+      "path": "input/IMG_7174.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7175.jpg": {
+      "path": "input/IMG_7175.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 3,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7176.jpg": {
+      "path": "input/IMG_7176.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7177.jpg": {
+      "path": "input/IMG_7177.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7178.jpg": {
+      "path": "input/IMG_7178.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7179.jpg": {
+      "path": "input/IMG_7179.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7180.jpg": {
+      "path": "input/IMG_7180.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7181.jpg": {
+      "path": "input/IMG_7181.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7182.jpg": {
+      "path": "input/IMG_7182.jpg",
+      "classes": [
+        "sluk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 1,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7183.jpg": {
+      "path": "input/IMG_7183.jpg",
+      "classes": [
+        "sluk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 1,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7184.jpg": {
+      "path": "input/IMG_7184.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 3,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7185.jpg": {
+      "path": "input/IMG_7185.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7186.jpg": {
+      "path": "input/IMG_7186.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 4,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7187.jpg": {
+      "path": "input/IMG_7187.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 4,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7188.jpg": {
+      "path": "input/IMG_7188.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 4,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7189.jpg": {
+      "path": "input/IMG_7189.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 4,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7190.jpg": {
+      "path": "input/IMG_7190.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7191.jpg": {
+      "path": "input/IMG_7191.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7192.jpg": {
+      "path": "input/IMG_7192.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7193.jpg": {
+      "path": "input/IMG_7193.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7194.jpg": {
+      "path": "input/IMG_7194.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7195.jpg": {
+      "path": "input/IMG_7195.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7196.jpg": {
+      "path": "input/IMG_7196.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7197.jpg": {
+      "path": "input/IMG_7197.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7198.jpg": {
+      "path": "input/IMG_7198.jpg",
+      "classes": [
+        "sluk",
+        "kumlokk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 1,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7199.jpg": {
+      "path": "input/IMG_7199.jpg",
+      "classes": [
+        "sluk",
+        "kumlokk"
+      ],
+      "primary_class": "sluk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 1,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7200.jpg": {
+      "path": "input/IMG_7200.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7201.jpg": {
+      "path": "input/IMG_7201.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7202.jpg": {
+      "path": "input/IMG_7202.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 1
+      }
+    },
+    "IMG_7203.jpg": {
+      "path": "input/IMG_7203.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 1
+      }
+    },
+    "IMG_7204.jpg": {
+      "path": "input/IMG_7204.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 3
+      }
+    },
+    "IMG_7205.jpg": {
+      "path": "input/IMG_7205.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7206.jpg": {
+      "path": "input/IMG_7206.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7207.jpg": {
+      "path": "input/IMG_7207.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7208.jpg": {
+      "path": "input/IMG_7208.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7209.jpg": {
+      "path": "input/IMG_7209.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 1
+      }
+    },
+    "IMG_7210.jpg": {
+      "path": "input/IMG_7210.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 1
+      }
+    },
+    "IMG_7211.jpg": {
+      "path": "input/IMG_7211.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7212.jpg": {
+      "path": "input/IMG_7212.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7213.jpg": {
+      "path": "input/IMG_7213.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7214.jpg": {
+      "path": "input/IMG_7214.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7215.jpg": {
+      "path": "input/IMG_7215.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7216.jpg": {
+      "path": "input/IMG_7216.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7217.jpg": {
+      "path": "input/IMG_7217.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7218.jpg": {
+      "path": "input/IMG_7218.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7219.jpg": {
+      "path": "input/IMG_7219.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 2
+      }
+    },
+    "IMG_7220.jpg": {
+      "path": "input/IMG_7220.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 1
+      }
+    },
+    "IMG_7221.jpg": {
+      "path": "input/IMG_7221.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 1
+      }
+    },
+    "IMG_7222.jpg": {
+      "path": "input/IMG_7222.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 1
+      }
+    },
+    "IMG_7223.jpg": {
+      "path": "input/IMG_7223.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 1
+      }
+    },
+    "IMG_7224.jpg": {
+      "path": "input/IMG_7224.jpg",
+      "classes": [
+        "elsparkesykkel"
+      ],
+      "primary_class": "elsparkesykkel",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 1
+      }
+    },
+    "IMG_7225.jpg": {
+      "path": "input/IMG_7225.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7226.jpg": {
+      "path": "input/IMG_7226.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7227.jpg": {
+      "path": "input/IMG_7227.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7228.jpg": {
+      "path": "input/IMG_7228.jpg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7229.jpg": {
+      "path": "input/IMG_7229.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 671.6551849706201,
+          "y": 881.870698530326,
+          "width": 501.01846230240847,
+          "height": 243.6332131400294
+        }
+      ]
+    },
+    "IMG_7230.jpg": {
+      "path": "input/IMG_7230.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 442.9293652238683,
+          "y": 1023.6870464775072,
+          "width": 588.1521079202184,
+          "height": 298.17796235048377
+        }
+      ]
+    },
+    "IMG_7231.jpg": {
+      "path": "input/IMG_7231.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 755.1582620210214,
+          "y": 754.5996170392658,
+          "width": 196.0507026400728,
+          "height": 101.81686519284813
+        },
+        {
+          "class": "sluk",
+          "x": 1277.9601357278823,
+          "y": 1332.7739586700818,
+          "width": 268.6620739882478,
+          "height": 261.8147962101807
+        }
+      ]
+    },
+    "IMG_7232.jpg": {
+      "path": "input/IMG_7232.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 1325.157527104196,
+          "y": 1496.4082063014448,
+          "width": 388.47083671273685,
+          "height": 378.17692785915006
+        },
+        {
+          "class": "kumlokk",
+          "x": 591.7826764876272,
+          "y": 565.5111531096909,
+          "width": 294.07605396010933,
+          "height": 90.90791535075721
+        }
+      ]
+    },
+    "IMG_7233.jpg": {
+      "path": "input/IMG_7233.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 606.3049507572624,
+          "y": 670.9643349165692,
+          "width": 301.33719109492677,
+          "height": 156.3616144033025
+        },
+        {
+          "class": "sluk",
+          "x": 1764.4208689894892,
+          "y": 2238.2167955636237,
+          "width": 377.57913101051076,
+          "height": 610.9011911570883
+        }
+      ]
+    },
+    "IMG_7234.jpg": {
+      "path": "input/IMG_7234.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 715.222007779525,
+          "y": 950.9607141969013,
+          "width": 432.0376595216419,
+          "height": 210.90636361375675
+        }
+      ]
+    },
+    "IMG_7235.jpg": {
+      "path": "input/IMG_7235.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 707.9608706447075,
+          "y": 1416.4092407927785,
+          "width": 675.2857535380285,
+          "height": 490.902742894089
+        }
+      ]
+    },
+    "IMG_7236.jpg": {
+      "path": "input/IMG_7236.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 805.9862219647439,
+          "y": 932.77913112675,
+          "width": 243.24809401638663,
+          "height": 109.08949842090863
+        }
+      ]
+    },
+    "IMG_7237.jpg": {
+      "path": "input/IMG_7237.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 758.7888305884301,
+          "y": 998.2328301792952,
+          "width": 304.96775966233554,
+          "height": 134.54371471912077
+        }
+      ]
+    },
+    "IMG_7238.jpg": {
+      "path": "input/IMG_7238.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 795.0945162625176,
+          "y": 921.8701812846592,
+          "width": 370.3179938756932,
+          "height": 185.45214731554472
+        }
+      ]
+    },
+    "IMG_7239.jpg": {
+      "path": "input/IMG_7239.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 853.1836133410577,
+          "y": 1067.3228458458707,
+          "width": 432.0376595216419,
+          "height": 239.9968965259991
+        }
+      ]
+    },
+    "IMG_7240.jpg": {
+      "path": "input/IMG_7240.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 914.9032789870066,
+          "y": 1285.5018426876882,
+          "width": 657.1329107009849,
+          "height": 469.08484320990715
+        }
+      ]
+    },
+    "IMG_7241.jpg": {
+      "path": "input/IMG_7241.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 965.7312389307292,
+          "y": 1070.959162459901,
+          "width": 442.9293652238682,
+          "height": 203.63373038569603
+        },
+        {
+          "class": "kumlokk",
+          "x": 933.0561218240504,
+          "y": 736.4180339691145,
+          "width": 544.5852851113135,
+          "height": 149.08898117524177
+        }
+      ]
+    },
+    "IMG_7242.jpg": {
+      "path": "input/IMG_7242.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 972.9923760655466,
+          "y": 1220.0481436351429,
+          "width": 504.64903086981724,
+          "height": 269.0874294382413
+        },
+        {
+          "class": "kumlokk",
+          "x": 1020.1897674418605,
+          "y": 801.8717330216597,
+          "width": 599.0438136224449,
+          "height": 218.17899684181725
+        }
+      ]
+    },
+    "IMG_7243.jpg": {
+      "path": "input/IMG_7243.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 729.74428204916,
+          "y": 1474.590306617263,
+          "width": 649.8717735661675,
+          "height": 403.6311441573621
+        },
+        {
+          "class": "kumlokk",
+          "x": 922.164416121824,
+          "y": 925.5064978986895,
+          "width": 686.177459240255,
+          "height": 250.9058463680899
+        }
+      ]
+    },
+    "IMG_7244.jpg": {
+      "path": "input/IMG_7244.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 878.597593312919,
+          "y": 983.6875637231741,
+          "width": 769.6805362906563,
+          "height": 312.7232288066049
+        },
+        {
+          "class": "kumlokk",
+          "x": 363.0568567408756,
+          "y": 1721.8598363713227,
+          "width": 860.4447504758753,
+          "height": 636.3554074553003
+        }
+      ]
+    },
+    "IMG_7245.jpg": {
+      "path": "input/IMG_7245.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 773.311104858065,
+          "y": 1114.5949618282646,
+          "width": 976.6229446329554,
+          "height": 563.6290751746947
+        }
+      ]
+    },
+    "IMG_7246.jpg": {
+      "path": "input/IMG_7246.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 620.8272250268973,
+          "y": 1405.5002909506875,
+          "width": 1172.673647273028,
+          "height": 1007.25970208639
+        }
+      ]
+    },
+    "IMG_7247.jpg": {
+      "path": "input/IMG_7247.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 795.0945162625176,
+          "y": 1914.5846169149281,
+          "width": 1343.31036994124,
+          "height": 941.8060030338447
+        },
+        {
+          "class": "kumlokk",
+          "x": -3.630568567408756,
+          "y": 929.1428145127197,
+          "width": 323.12060249937934,
+          "height": 112.72581503493893
+        }
+      ]
+    },
+    "IMG_7248.jpg": {
+      "path": "input/IMG_7248.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 791.4639476951088,
+          "y": 1183.68497749484,
+          "width": 555.4769908135397,
+          "height": 309.0869121925746
+        },
+        {
+          "class": "kumlokk",
+          "x": 127.06989985930647,
+          "y": 929.1428145127197,
+          "width": 468.3433451957295,
+          "height": 203.63373038569625
+        },
+        {
+          "class": "kumlokk",
+          "x": 464.7127766283208,
+          "y": 565.5111531096909,
+          "width": 239.61752544897791,
+          "height": 105.45318180687832
+        }
+      ]
+    },
+    "IMG_7249.jpg": {
+      "path": "input/IMG_7249.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 943.9478275262766,
+          "y": 1409.136607564718,
+          "width": 671.65518497062,
+          "height": 414.5400939994529
+        },
+        {
+          "class": "kumlokk",
+          "x": 330.38173963419683,
+          "y": 1070.959162459901,
+          "width": 490.12675660018203,
+          "height": 221.81531345584744
+        },
+        {
+          "class": "kumlokk",
+          "x": 791.4639476951088,
+          "y": 670.9643349165692,
+          "width": 250.50923115120418,
+          "height": 90.90791535075732
+        }
+      ]
+    },
+    "IMG_7250.jpg": {
+      "path": "input/IMG_7250.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1158.1513730033932,
+          "y": 1558.2255887399597,
+          "width": 824.1390648017878,
+          "height": 614.5375077711187
+        },
+        {
+          "class": "kumlokk",
+          "x": 540.9547165439046,
+          "y": 1027.3233630915377,
+          "width": 504.6490308698171,
+          "height": 254.5421629821201
+        },
+        {
+          "class": "kumlokk",
+          "x": 1081.9094330878092,
+          "y": 561.8748364956606,
+          "width": 268.66207398824804,
+          "height": 123.63476487702985
+        }
+      ]
+    },
+    "IMG_7251.jpg": {
+      "path": "input/IMG_7251.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 860.4447504758753,
+          "y": 1023.6870464775072,
+          "width": 537.3241479764959,
+          "height": 265.4511128242111
+        },
+        {
+          "class": "kumlokk",
+          "x": 1470.3802698005463,
+          "y": 718.236450898963,
+          "width": 275.92321112306536,
+          "height": 163.634247631363
+        }
+      ]
+    },
+    "IMG_7252.jpg": {
+      "path": "input/IMG_7252.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "height": 359.9953447889984,
+          "width": 664.3940478358024,
+          "x": 508.2795994372259,
+          "y": 1121.8675950563252
+        },
+        {
+          "class": "kumlokk",
+          "x": 1169.0430787056196,
+          "y": 674.6006515305995,
+          "width": 323.1206024993792,
+          "height": 192.72478054360533
+        },
+        {
+          "class": "sluk",
+          "x": 1884.2650864851444,
+          "y": 721.8727675129933,
+          "width": 170.63672266821186,
+          "height": 87.27159873672701
+        }
+      ]
+    },
+    "IMG_7253.jpg": {
+      "path": "input/IMG_7253.jpg",
+      "bboxes": [
+        {
+          "class": "sluk",
+          "x": 1972.7738922993733,
+          "y": 772.0991805041214,
+          "width": 167.44105092401173,
+          "height": 90.83519770636724
+        },
+        {
+          "class": "kumlokk",
+          "x": -5.123521740513375,
+          "y": 1421.9202102496715,
+          "width": 1102.3202519164095,
+          "height": 824.5041022577948
+        },
+        {
+          "class": "kumlokk",
+          "x": 1111.1501510862304,
+          "y": 670.7829984470195,
+          "width": 383.71907503419334,
+          "height": 279.49291601959146
+        },
+        {
+          "class": "kumlokk",
+          "x": 1142.5453481344825,
+          "y": 352.8598064747342,
+          "width": 219.76637933776533,
+          "height": 94.32885915661211
+        }
+      ]
+    },
+    "IMG_7254.jpg": {
+      "path": "input/IMG_7254.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 472.78114443843634,
+          "y": 740.6562274519174,
+          "width": 526.7416393651197,
+          "height": 370.3281137259587
+        },
+        {
+          "class": "kumlokk",
+          "x": -5.123521740513375,
+          "y": 2522.423567076813,
+          "width": 310.4636152549381,
+          "height": 324.9105148727749
+        },
+        {
+          "class": "sluk",
+          "x": 1505.3342918031744,
+          "y": 807.0357950065703,
+          "width": 219.7663793377651,
+          "height": 132.75913510930593
+        },
+        {
+          "class": "kumlokk",
+          "x": 535.5715385349407,
+          "y": 314.4295305220404,
+          "width": 289.53348388943664,
+          "height": 97.82252060685698
+        }
+      ]
+    },
+    "IMG_7255.jpg": {
+      "path": "input/IMG_7255.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 89.06206940424313,
+          "y": 1103.9970182773864,
+          "width": 694.1826902891313,
+          "height": 558.9858320391829
+        },
+        {
+          "class": "sluk",
+          "x": 1306.4980438309105,
+          "y": 943.2885915661212,
+          "width": 296.51019434460386,
+          "height": 160.70842671126513
+        },
+        {
+          "class": "kumlokk",
+          "x": 89.06206940424313,
+          "y": 520.5555560864891,
+          "width": 338.37045707560674,
+          "height": 104.80984350734684
+        }
+      ]
+    },
+    "IMG_7256.jpg": {
+      "path": "input/IMG_7256.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": -1.6351665129298005,
+          "y": 1135.4399713295902,
+          "width": 1172.087356468081,
+          "height": 1400.9582415482023
+        },
+        {
+          "class": "kumlokk",
+          "x": 528.5948280797735,
+          "y": 62.88590610440808,
+          "width": 432.5560482203633,
+          "height": 206.1260255644487
+        }
+      ]
+    },
+    "IMG_7257.jpg": {
+      "path": "input/IMG_7257.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 689.059168548618,
+          "y": 206.1260255644487,
+          "width": 436.0444034479468,
+          "height": 199.13870266395895
+        },
+        {
+          "class": "kumlokk",
+          "x": 33.24838576290595,
+          "y": 1690.9321419185283,
+          "width": 1217.4359744266676,
+          "height": 1163.3892629315494
+        }
+      ]
+    },
+    "IMG_7258.jpg": {
+      "path": "input/IMG_7258.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 647.198905817615,
+          "y": 918.8329614144069,
+          "width": 680.229269378797,
+          "height": 335.39149922350987
+        }
+      ]
+    },
+    "IMG_7259.jpg": {
+      "path": "input/IMG_7259.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 717.8573364292758,
+          "y": 199.7552311551786,
+          "width": 421.0649957059702,
+          "height": 702.8424799904433
+        }
+      ]
+    },
+    "IMG_7260.jpg": {
+      "path": "input/IMG_7260.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 764.6423359521614,
+          "y": 564.7400979572333,
+          "width": 315.1831546804924,
+          "height": 500.62113487038596
+        }
+      ]
+    },
+    "IMG_7261.jpg": {
+      "path": "input/IMG_7261.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 518.4054963580267,
+          "y": 535.1467303786883,
+          "width": 339.8068386399059,
+          "height": 525.2822745191734
+        }
+      ]
+    },
+    "IMG_7262.jpg": {
+      "path": "input/IMG_7262.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 305.3400935144248,
+          "y": 1051.5920965237128,
+          "width": 327.905391392856,
+          "height": 702.2259514992236
+        }
+      ]
+    },
+    "IMG_7263.jpg": {
+      "path": "input/IMG_7263.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 211.15450236966825,
+          "y": 967.7442217178354,
+          "width": 348.8355227583574,
+          "height": 754.6308732528969
+        }
+      ]
+    },
+    "IMG_7264.jpg": {
+      "path": "input/IMG_7264.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 441.3859473901841,
+          "y": 436.7076812806117,
+          "width": 997.6695950889023,
+          "height": 1725.8687564209774
+        }
+      ]
+    },
+    "IMG_7265.jpg": {
+      "path": "input/IMG_7265.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 1261.1494258723242,
+          "y": 946.7822530163661,
+          "width": 791.8566366614714,
+          "height": 894.3773312626926
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 853.011864245046,
+          "y": 779.0865034046112,
+          "width": 341.85881230319035,
+          "height": 373.8217751762036
+        }
+      ]
+    },
+    "IMG_7266.jpg": {
+      "path": "input/IMG_7266.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 227.84602563694776,
+          "y": 754.6308732528969,
+          "width": 625.4415725691022,
+          "height": 697.9102520606857
+        }
+      ]
+    },
+    "IMG_7267.jpg": {
+      "path": "input/IMG_7267.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": -11.003708769362895,
+          "y": 512.9517046947796,
+          "width": 1044.0441998791312,
+          "height": 1151.6752215983752
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 914.8468081045836,
+          "y": 438.96828574841714,
+          "width": 467.84999522885585,
+          "height": 712.7069358499582
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 621.8249689875632,
+          "y": 184.9585473659061,
+          "width": 105.88184102547791,
+          "height": 219.4841428742086
+        }
+      ]
+    },
+    "IMG_7268.jpg": {
+      "path": "input/IMG_7268.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 648.911021342918,
+          "y": 685.579682236292,
+          "width": 182.2152612996597,
+          "height": 288.5353338908135
+        }
+      ]
+    },
+    "IMG_7269.jpg": {
+      "path": "input/IMG_7269.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 577.502337860619,
+          "y": 495.6889069406283,
+          "width": 465.3876268329145,
+          "height": 631.3251750089594
+        }
+      ]
+    },
+    "IMG_7270.jpg": {
+      "path": "input/IMG_7270.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 816.3520722669297,
+          "y": 609.1301493250508,
+          "width": 458.00052164509054,
+          "height": 734.9019615338668
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 346.03970864213244,
+          "y": 520.3500465894158,
+          "width": 238.84973440631057,
+          "height": 438.9682857484172
+        }
+      ]
+    },
+    "IMG_7271.jpg": {
+      "path": "input/IMG_7271.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "height": 762.0292151475331,
+          "width": 534.3339419192723,
+          "x": 818.814440662871,
+          "y": 614.0623772548082
+        },
+        {
+          "class": "elsparkesykkel",
+          "height": 453.76496953768964,
+          "width": 201.91420846719046,
+          "x": 304.1794459111295,
+          "y": 483.3583371162346
+        }
+      ]
+    },
+    "IMG_7272.jpg": {
+      "path": "input/IMG_7272.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 326.34076147460166,
+          "y": 495.6889069406283,
+          "width": 177.29052450777698,
+          "height": 480.89222315135584
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 914.8468081045836,
+          "y": 562.2739839923546,
+          "width": 576.1942046502751,
+          "height": 752.164759288018
+        }
+      ]
+    },
+    "IMG_7273.jpg": {
+      "path": "input/IMG_7273.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 493.7818123986132,
+          "y": 276.2047640664198,
+          "width": 512.1726263558003,
+          "height": 863.1398877075617
+        }
+      ]
+    },
+    "IMG_7274.jpg": {
+      "path": "input/IMG_7274.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 735.0939152008652,
+          "y": 291.0014478556923,
+          "width": 499.8607843760933,
+          "height": 902.5977111456218
+        }
+      ]
+    },
+    "IMG_7276.jpg": {
+      "path": "input/IMG_7276.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 821.6166671967937,
+          "y": 1159.8956014813045,
+          "width": 429.0676929927797,
+          "height": 964.2505602675903
+        }
+      ]
+    },
+    "IMG_7277.jpg": {
+      "path": "input/IMG_7277.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 507.66469671427205,
+          "y": 1079.541388125672,
+          "width": 460.46289004103187,
+          "height": 677.7703213475093
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1365.8000826998314,
+          "y": 1124.9589869788556,
+          "width": 547.6717707306213,
+          "height": 632.3527224943257
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1142.5453481344825,
+          "y": 1103.9970182773864,
+          "width": 436.04440344794693,
+          "height": 517.0618946362442
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1051.8481122173098,
+          "y": 1044.604773623223,
+          "width": 394.18414071694383,
+          "height": 496.0999259347748
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 936.7323897070517,
+          "y": 1027.1364663719987,
+          "width": 289.53348388943664,
+          "height": 436.7076812806115
+        }
+      ]
+    },
+    "IMG_7278.jpg": {
+      "path": "input/IMG_7278.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 197.20108145933395,
+          "y": 827.9977637080397,
+          "width": 387.2074302617767,
+          "height": 730.1752431011828
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 992.546073348389,
+          "y": 953.7695759168558,
+          "width": 279.0684182066859,
+          "height": 464.6569728825708
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1058.8248226724768,
+          "y": 995.6935133197945,
+          "width": 446.50946913069765,
+          "height": 489.11260303428514
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1128.5919272241483,
+          "y": 1023.6428049217537,
+          "width": 502.32315277203475,
+          "height": 534.5302018874687
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1376.265148382582,
+          "y": 1027.1364663719987,
+          "width": 606.9738095995419,
+          "height": 733.6689045514274
+        }
+      ]
+    },
+    "IMG_7279.jpg": {
+      "path": "input/IMG_7279.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 528.5948280797735,
+          "y": 761.6181961533867,
+          "width": 380.2307198066096,
+          "height": 527.542878986979
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 664.640681955533,
+          "y": 834.9850866085295,
+          "width": 463.95124526861537,
+          "height": 572.9604778401625
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 716.9660103692866,
+          "y": 848.9597324095091,
+          "width": 551.1601259582048,
+          "height": 677.7703213475093
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 989.0577181208054,
+          "y": 908.3519770636723,
+          "width": 561.6251916409554,
+          "height": 733.6689045514275
+        }
+      ]
+    },
+    "IMG_7280.jpg": {
+      "path": "input/IMG_7280.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 235.57298896275327,
+          "y": 733.6689045514275,
+          "width": 446.50946913069754,
+          "height": 628.8590610440809
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 308.82844874200833,
+          "y": 810.5294564568153,
+          "width": 596.5087439167912,
+          "height": 649.82102974555
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 382.0839085212634,
+          "y": 814.0231179070602,
+          "width": 631.392296192627,
+          "height": 793.0611492055907
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 699.5242342313687,
+          "y": 904.8583156134274,
+          "width": 711.6244664270492,
+          "height": 890.8836698124477
+        }
+      ]
+    },
+    "IMG_7281.jpg": {
+      "path": "input/IMG_7281.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 141.38739781799674,
+          "y": 649.8210297455502,
+          "width": 512.7882184547855,
+          "height": 702.2259514992235
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 242.5496994179204,
+          "y": 765.1118576036315,
+          "width": 694.1826902891314,
+          "height": 740.6562274519174
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 333.2469353350933,
+          "y": 855.9470553099989,
+          "width": 798.8333471166385,
+          "height": 869.9217011109783
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 723.9427208244537,
+          "y": 950.275914466611,
+          "width": 962.7860428130667,
+          "height": 1065.5667423246925
+        }
+      ]
+    },
+    "IMG_7282.jpg": {
+      "path": "input/IMG_7282.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 873.9419956105476,
+          "y": 1278.6800907896306,
+          "width": 586.0436782340405,
+          "height": 387.7964209771833
+        }
+      ]
+    },
+    "IMG_7283.jpg": {
+      "path": "input/IMG_7283.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 776.2680492382074,
+          "y": 1331.0850125433044,
+          "width": 746.508018702885,
+          "height": 464.6569728825707
+        }
+      ]
+    },
+    "IMG_7284.jpg": {
+      "path": "input/IMG_7284.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 891.3837717484653,
+          "y": 1505.768085055549,
+          "width": 1049.9949235026559,
+          "height": 789.5674877553461
+        }
+      ]
+    },
+    "IMG_7285.jpg": {
+      "path": "input/IMG_7285.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 699.5242342313687,
+          "y": 1072.5540652251823,
+          "width": 184.88282706192945,
+          "height": 377.31543662644845
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 866.9652851553802,
+          "y": 1097.0096953768964,
+          "width": 177.90611660676234,
+          "height": 415.7457125791425
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 989.0577181208054,
+          "y": 1093.5160339266515,
+          "width": 209.3013136550145,
+          "height": 454.1759885318363
+        }
+      ]
+    },
+    "IMG_7286.jpg": {
+      "path": "input/IMG_7286.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 915.8022583415503,
+          "y": 932.8076072153865,
+          "width": 226.7430897929322,
+          "height": 370.3281137259587
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1069.2898883552275,
+          "y": 943.2885915661212,
+          "width": 233.71980024809955,
+          "height": 468.1506343328157
+        },
+        {
+          "class": "elsparkesykkel",
+          "x": 1219.2891631413213,
+          "y": 971.2378831680803,
+          "width": 233.71980024809955,
+          "height": 478.6316186835504
+        }
+      ]
+    },
+    "IMG_7287.jpg": {
+      "path": "input/IMG_7287.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 1009.9878494863068,
+          "y": 946.7822530163661,
+          "width": 188.37118228951306,
+          "height": 338.8851606737545
+        }
+      ]
+    },
+    "IMG_7288.jpg": {
+      "path": "input/IMG_7288.jpg",
+      "bboxes": [
+        {
+          "class": "elsparkesykkel",
+          "x": 912.3139031139666,
+          "y": 950.275914466611,
+          "width": 327.90539139285613,
+          "height": 370.3281137259586
+        }
+      ]
+    },
+    "IMG_7318.jpeg": {
+      "path": "input/IMG_7318.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7319.jpeg": {
+      "path": "input/IMG_7319.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7320.jpeg": {
+      "path": "input/IMG_7320.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7321.jpeg": {
+      "path": "input/IMG_7321.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7322.jpeg": {
+      "path": "input/IMG_7322.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7323.jpeg": {
+      "path": "input/IMG_7323.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7324.jpeg": {
+      "path": "input/IMG_7324.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7325.jpeg": {
+      "path": "input/IMG_7325.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7326.jpeg": {
+      "path": "input/IMG_7326.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7327.jpeg": {
+      "path": "input/IMG_7327.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7328.jpeg": {
+      "path": "input/IMG_7328.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7329.jpeg": {
+      "path": "input/IMG_7329.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7330.jpeg": {
+      "path": "input/IMG_7330.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7331.jpeg": {
+      "path": "input/IMG_7331.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7332.jpeg": {
+      "path": "input/IMG_7332.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7333.jpeg": {
+      "path": "input/IMG_7333.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7334.jpeg": {
+      "path": "input/IMG_7334.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7335.jpeg": {
+      "path": "input/IMG_7335.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7336.jpeg": {
+      "path": "input/IMG_7336.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7337.jpeg": {
+      "path": "input/IMG_7337.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 2,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7338.jpeg": {
+      "path": "input/IMG_7338.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7339.jpeg": {
+      "path": "input/IMG_7339.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7340.jpeg": {
+      "path": "input/IMG_7340.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7341.jpeg": {
+      "path": "input/IMG_7341.jpeg",
+      "classes": [
+        "kumlokk"
+      ],
+      "primary_class": "kumlokk",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 1,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7342.jpeg": {
+      "path": "input/IMG_7342.jpeg",
+      "classes": [
+        "stikkontakt"
+      ],
+      "primary_class": "stikkontakt",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 1,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7343.jpeg": {
+      "path": "input/IMG_7343.jpeg",
+      "classes": [
+        "stikkontakt"
+      ],
+      "primary_class": "stikkontakt",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 1,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7344.jpeg": {
+      "path": "input/IMG_7344.jpeg",
+      "classes": [
+        "stikkontakt"
+      ],
+      "primary_class": "stikkontakt",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 1,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7345.jpeg": {
+      "path": "input/IMG_7345.jpeg",
+      "classes": [
+        "stikkontakt"
+      ],
+      "primary_class": "stikkontakt",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 1,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7346.jpeg": {
+      "path": "input/IMG_7346.jpeg",
+      "classes": [
+        "stikkontakt"
+      ],
+      "primary_class": "stikkontakt",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 1,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7347.jpeg": {
+      "path": "input/IMG_7347.jpeg",
+      "classes": [
+        "stikkontakt"
+      ],
+      "primary_class": "stikkontakt",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 1,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7348.jpeg": {
+      "path": "input/IMG_7348.jpeg",
+      "classes": [
+        "stikkontakt"
+      ],
+      "primary_class": "stikkontakt",
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 1,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7349.jpeg": {
+      "path": "input/IMG_7349.jpeg",
+      "classes": [
+        "bryter"
+      ],
+      "primary_class": "bryter",
+      "counts": {
+        "blank": 0,
+        "bryter": 1,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7350.jpeg": {
+      "path": "input/IMG_7350.jpeg",
+      "classes": [
+        "bryter"
+      ],
+      "primary_class": "bryter",
+      "counts": {
+        "blank": 0,
+        "bryter": 1,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7351.jpeg": {
+      "path": "input/IMG_7351.jpeg",
+      "classes": [
+        "bryter"
+      ],
+      "primary_class": "bryter",
+      "counts": {
+        "blank": 0,
+        "bryter": 1,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7352.jpeg": {
+      "path": "input/IMG_7352.jpeg",
+      "classes": [
+        "bryter"
+      ],
+      "primary_class": "bryter",
+      "counts": {
+        "blank": 0,
+        "bryter": 1,
+        "stikkontakt": 0,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7353.jpeg": {
+      "path": "input/IMG_7353.jpeg",
+      "classes": [
+        "bryter",
+        "stikkontakt"
+      ],
+      "primary_class": "bryter",
+      "counts": {
+        "blank": 0,
+        "bryter": 1,
+        "stikkontakt": 1,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7354.jpeg": {
+      "path": "input/IMG_7354.jpeg",
+      "classes": [
+        "bryter",
+        "stikkontakt"
+      ],
+      "primary_class": "bryter",
+      "counts": {
+        "blank": 0,
+        "bryter": 1,
+        "stikkontakt": 1,
+        "sluk": 0,
+        "kumlokk": 0,
+        "elsparkesykkel": 0
+      }
+    },
+    "IMG_7355.jpeg": {
+      "path": "input/IMG_7355.jpeg",
+      "classes": [],
+      "primary_class": null,
+      "counts": {
+        "blank": 0,
+        "bryter": 0,
+        "stikkontakt": 0,
+        "elsparkesykkel": 0,
+        "sluk": 0,
+        "kumlokk": 0
+      }
+    },
+    "IMG_7318.jpg": {
+      "path": "input/IMG_7318.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1394.8517608065185,
+          "y": 1093.5238220342321,
+          "width": 654.8735257561111,
+          "height": 383.20604253418605
+        }
+      ]
+    },
+    "IMG_7319.jpg": {
+      "path": "input/IMG_7319.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1486.137332406396,
+          "y": 855.1583676525646,
+          "width": 750.3299235276593,
+          "height": 531.3605391239236
+        }
+      ]
+    },
+    "IMG_7321.jpg": {
+      "path": "input/IMG_7321.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "height": 455.2372535368529,
+          "width": 654.873525756111,
+          "x": 644.7763568567875,
+          "y": 1270.720601100792
+        }
+      ]
+    },
+    "IMG_7320.jpg": {
+      "path": "input/IMG_7320.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 809.2159646457671,
+          "y": 132.62746725865986,
+          "width": 686.6074851539845,
+          "height": 475.4059926175996
+        }
+      ]
+    },
+    "IMG_7322.jpg": {
+      "path": "input/IMG_7322.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1022.6989642314597,
+          "y": 1112.2519368949256,
+          "width": 626.0244717580445,
+          "height": 478.28724105770607
+        }
+      ]
+    },
+    "IMG_7323.jpg": {
+      "path": "input/IMG_7323.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 812.1008700455739,
+          "y": 536.0022488735929,
+          "width": 773.154647148184,
+          "height": 593.5371786619726
+        }
+      ]
+    },
+    "IMG_7324.jpg": {
+      "path": "input/IMG_7324.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1683.3423007871843,
+          "y": 1478.1704887884716,
+          "width": 767.3848363485704,
+          "height": 579.1309364614394
+        }
+      ]
+    },
+    "IMG_7325.jpg": {
+      "path": "input/IMG_7325.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1045.778207429913,
+          "y": 1129.5394275355657,
+          "width": 496.20372876674503,
+          "height": 224.7373783283199
+        }
+      ]
+    },
+    "IMG_7326.jpg": {
+      "path": "input/IMG_7326.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 739.9782350504073,
+          "y": 489.90227383188625,
+          "width": 553.9018367628781,
+          "height": 288.12484401066644
+        }
+      ]
+    },
+    "IMG_7327.jpg": {
+      "path": "input/IMG_7327.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1974.7177461676567,
+          "y": 1358.5986785240452,
+          "width": 773.154647148184,
+          "height": 498.455980138453
+        }
+      ]
+    },
+    "IMG_7328.jpg": {
+      "path": "input/IMG_7328.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1155.404612622566,
+          "y": 1015.7301141513524,
+          "width": 620.254660958431,
+          "height": 380.3247940940796
+        }
+      ]
+    },
+    "IMG_7329.jpg": {
+      "path": "input/IMG_7329.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "height": 37.45622972138665,
+          "width": 161.55470238917292,
+          "x": 1380.4272338074852,
+          "y": 926.4114125080457
+        },
+        {
+          "class": "kumlokk",
+          "height": 57.62496880213348,
+          "width": 204.82828338627246,
+          "x": 1666.032868388344,
+          "y": 955.2238969091125
+        }
+      ]
+    },
+    "IMG_7330.jpg": {
+      "path": "input/IMG_7330.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1259.2612070156056,
+          "y": 1191.4862689978588,
+          "width": 291.37544538047223,
+          "height": 146.94367044543992
+        },
+        {
+          "class": "kumlokk",
+          "x": 488.9914652672283,
+          "y": 1488.254858328845,
+          "width": 478.89429636790504,
+          "height": 242.02486896895994
+        }
+      ]
+    },
+    "IMG_7331.jpg": {
+      "path": "input/IMG_7331.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1611.2196657920174,
+          "y": 1508.423597409592,
+          "width": 464.46976936887177,
+          "height": 262.1936080497064
+        },
+        {
+          "class": "kumlokk",
+          "x": 2228.589421350642,
+          "y": 1237.5862440395654,
+          "width": 426.96599917138565,
+          "height": 181.51865172671978
+        }
+      ]
+    },
+    "IMG_7332.jpg": {
+      "path": "input/IMG_7332.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 644.7763568567876,
+          "y": 1277.9237222010588,
+          "width": 706.8018229526309,
+          "height": 449.47475665663956
+        }
+      ]
+    },
+    "IMG_7333.jpg": {
+      "path": "input/IMG_7333.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 396.67449247341517,
+          "y": 1185.7237721176457,
+          "width": 657.7584311559178,
+          "height": 365.91855189354646
+        }
+      ]
+    },
+    "IMG_7334.jpg": {
+      "path": "input/IMG_7334.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 457.25750586935504,
+          "y": 517.2741340128995,
+          "width": 614.4848501588178,
+          "height": 325.581073732053
+        }
+      ]
+    },
+    "IMG_7335.jpg": {
+      "path": "input/IMG_7335.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 2136.272448556829,
+          "y": 1237.5862440395654,
+          "width": 703.9169175528241,
+          "height": 409.1372784951461
+        }
+      ]
+    },
+    "IMG_7336.jpg": {
+      "path": "input/IMG_7336.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1129.440464024306,
+          "y": 828.4489655444191,
+          "width": 216.3679049854993,
+          "height": 72.03121100266662
+        },
+        {
+          "class": "kumlokk",
+          "x": 728.4386134511808,
+          "y": 880.311437466339,
+          "width": 250.98676978317906,
+          "height": 69.14996256255995
+        }
+      ]
+    },
+    "IMG_7337.jpg": {
+      "path": "input/IMG_7337.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1723.7309763844773,
+          "y": 923.530164067939,
+          "width": 314.4546885789257,
+          "height": 97.96244696362658
+        },
+        {
+          "class": "kumlokk",
+          "x": 1270.8008286148322,
+          "y": 1105.048815794659,
+          "width": 380.8075127744787,
+          "height": 158.46866420586662
+        }
+      ]
+    },
+    "IMG_7338.jpg": {
+      "path": "input/IMG_7338.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 2740.603784007734,
+          "y": 886.0739343465525,
+          "width": 115.3962159922662,
+          "height": 181.51865172671978
+        },
+        {
+          "class": "kumlokk",
+          "x": 2153.5818809556695,
+          "y": 1136.7425486358322,
+          "width": 663.528241955531,
+          "height": 365.91855189354624
+        }
+      ]
+    },
+    "IMG_7339.jpg": {
+      "path": "input/IMG_7339.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 1553.5215577958845,
+          "y": 1079.117579833699,
+          "width": 291.37544538047223,
+          "height": 247.78736584917306
+        }
+      ]
+    },
+    "IMG_7340.jpg": {
+      "path": "input/IMG_7340.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 584.1933434608479,
+          "y": 1338.4299394432987,
+          "width": 519.282971965198,
+          "height": 227.61862676842634
+        }
+      ]
+    },
+    "IMG_7341.jpg": {
+      "path": "input/IMG_7341.jpg",
+      "bboxes": [
+        {
+          "class": "kumlokk",
+          "x": 292.81789808037564,
+          "y": 1182.8425236775388,
+          "width": 285.605634580859,
+          "height": 259.31235960959975
+        }
+      ]
+    },
+    "IMG_7342.jpg": {
+      "path": "input/IMG_7342.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 1536.2121253970447,
+          "y": 1200.1300143181788,
+          "width": 256.7565805827926,
+          "height": 216.09363300799987
+        }
+      ]
+    },
+    "IMG_7343.jpg": {
+      "path": "input/IMG_7343.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 445.7178842701284,
+          "y": 969.6301391096456,
+          "width": 314.45468857892564,
+          "height": 239.14362052885326
+        }
+      ]
+    },
+    "IMG_7344.jpg": {
+      "path": "input/IMG_7344.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 1455.4347742024581,
+          "y": 1485.3736098887384,
+          "width": 354.843364176219,
+          "height": 308.293583091413
+        }
+      ]
+    },
+    "IMG_7345.jpg": {
+      "path": "input/IMG_7345.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 869.7989780417071,
+          "y": 943.6989031486856,
+          "width": 317.33959397873207,
+          "height": 296.7685893309864
+        }
+      ]
+    },
+    "IMG_7346.jpg": {
+      "path": "input/IMG_7346.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 1530.442314597431,
+          "y": 863.023946825699,
+          "width": 199.0584725866595,
+          "height": 195.92489392725327
+        }
+      ]
+    },
+    "IMG_7347.jpg": {
+      "path": "input/IMG_7347.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 1363.1178014086452,
+          "y": 1159.7925361566854,
+          "width": 210.5980941858861,
+          "height": 253.54986272938663
+        }
+      ]
+    },
+    "IMG_7348.jpg": {
+      "path": "input/IMG_7348.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 321.6669520784422,
+          "y": 926.4114125080457,
+          "width": 351.9584587764121,
+          "height": 288.1248440106665
+        }
+      ]
+    },
+    "IMG_7349.jpg": {
+      "path": "input/IMG_7349.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 428.40845187128866,
+          "y": 1606.3860443732183,
+          "width": 715.4565391520509,
+          "height": 339.9873159325864
+        }
+      ]
+    },
+    "IMG_7350.jpg": {
+      "path": "input/IMG_7350.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 145.68772269023614,
+          "y": 139.83058835892652,
+          "width": 804.8886065460572,
+          "height": 561.8434458207994
+        }
+      ]
+    },
+    "IMG_7351.jpg": {
+      "path": "input/IMG_7351.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 1074.6272614279796,
+          "y": 1041.6613501123122,
+          "width": 640.4489987570776,
+          "height": 256.4311111694931
+        }
+      ]
+    },
+    "IMG_7352.jpg": {
+      "path": "input/IMG_7352.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 2495.386825024168,
+          "y": 1087.761325154019,
+          "width": 360.61317497583195,
+          "height": 299.64983777109296
+        }
+      ]
+    },
+    "IMG_7353.jpg": {
+      "path": "input/IMG_7353.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 581.3084380610412,
+          "y": 1571.8110630919384,
+          "width": 614.4848501588177,
+          "height": 193.04364548714648
+        },
+        {
+          "class": "stikkontakt",
+          "x": 2006.4517055655297,
+          "y": 1589.0985537325785,
+          "width": 175.97922938820602,
+          "height": 123.89368292458653
+        }
+      ]
+    },
+    "IMG_7354.jpg": {
+      "path": "input/IMG_7354.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 2130.5026377572153,
+          "y": 1047.4238469925256,
+          "width": 175.97922938820648,
+          "height": 152.70616732565327
+        },
+        {
+          "class": "bryter",
+          "x": 725.5537080513741,
+          "y": 1033.0176047919922,
+          "width": 643.3339041568845,
+          "height": 224.73737832831978
+        }
+      ]
+    },
+    "IMG_7355.jpg": {
+      "path": "input/IMG_7355.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 1591.025327993371,
+          "y": 396.26169952841957,
+          "width": 553.9018367628785,
+          "height": 135.41867668501322
+        }
+      ]
+    },
+    "IMG_7356.jpg": {
+      "path": "input/IMG_7356.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 0,
+          "y": 903.3614249871924,
+          "width": 421.1961883717719,
+          "height": 181.5186517267199
+        },
+        {
+          "class": "stikkontakt",
+          "x": 1316.9593150117385,
+          "y": 1064.7113376331656,
+          "width": 170.20941858859283,
+          "height": 103.72494384383981
+        }
+      ]
+    },
+    "IMG_7357.jpg": {
+      "path": "input/IMG_7357.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 1340.038558210192,
+          "y": 416.43043860916623,
+          "width": 548.1320259632648,
+          "height": 167.11240952618652
+        },
+        {
+          "class": "stikkontakt",
+          "x": 2720.409446209087,
+          "y": 543.2053699738593,
+          "width": 135.59055379091296,
+          "height": 103.72494384384004
+        }
+      ]
+    },
+    "IMG_7359.jpg": {
+      "path": "input/IMG_7359.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 1190.0234774202459,
+          "y": 1514.1860942898052,
+          "width": 144.2452699903331,
+          "height": 146.94367044544015
+        }
+      ]
+    },
+    "IMG_7358.jpg": {
+      "path": "input/IMG_7358.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 944.80651843668,
+          "y": 949.4614000288991,
+          "width": 522.1678773650048,
+          "height": 158.4686642058664
+        },
+        {
+          "class": "stikkontakt",
+          "x": 2214.164894351609,
+          "y": 969.6301391096457,
+          "width": 201.9433779864662,
+          "height": 123.89368292458664
+        }
+      ]
+    },
+    "IMG_7360.jpg": {
+      "path": "input/IMG_7360.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 1536.2121253970445,
+          "y": 1387.411162925112,
+          "width": 178.86413478801273,
+          "height": 167.1124095261864
+        }
+      ]
+    },
+    "IMG_7361.jpg": {
+      "path": "input/IMG_7361.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 913.0725590388067,
+          "y": 1298.0924612818053,
+          "width": 178.86413478801273,
+          "height": 112.36868916416006
+        },
+        {
+          "class": "stikkontakt",
+          "x": 1429.4706256041984,
+          "y": 139.83058835892652,
+          "width": 199.05847258665926,
+          "height": 193.0436454871465
+        }
+      ]
+    },
+    "IMG_7362.jpg": {
+      "path": "input/IMG_7362.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 1504.4781659991713,
+          "y": 252.1992775230864,
+          "width": 193.28866178704607,
+          "height": 187.28114860693316
+        },
+        {
+          "class": "stikkontakt",
+          "x": 1071.742356028173,
+          "y": 1407.5799020058587,
+          "width": 152.89998618975278,
+          "height": 109.48744072405316
+        }
+      ]
+    },
+    "IMG_7363.jpg": {
+      "path": "input/IMG_7363.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 1342.9234636099986,
+          "y": 1505.5423489694851,
+          "width": 164.4396077889794,
+          "height": 132.53742824490655
+        },
+        {
+          "class": "stikkontakt",
+          "x": 1311.1895042121255,
+          "y": 283.89301036425974,
+          "width": 173.0943239883993,
+          "height": 138.29992512511984
+        }
+      ]
+    },
+    "IMG_7364.jpg": {
+      "path": "input/IMG_7364.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 1022.6989642314597,
+          "y": 612.3553325364194,
+          "width": 424.0810937715785,
+          "height": 181.51865172671978
+        },
+        {
+          "class": "stikkontakt",
+          "x": 2323.7912995442616,
+          "y": 894.7176796668724,
+          "width": 216.36790498549908,
+          "height": 106.6061922839466
+        }
+      ]
+    },
+    "IMG_7365.jpg": {
+      "path": "input/IMG_7365.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 2144.927164756249,
+          "y": 658.455307578126,
+          "width": 193.28866178704584,
+          "height": 106.60619228394648
+        },
+        {
+          "class": "bryter",
+          "x": 927.4970860378401,
+          "y": 485.5804011717262,
+          "width": 351.95845877641204,
+          "height": 184.39990016682646
+        }
+      ]
+    },
+    "IMG_7366.jpg": {
+      "path": "input/IMG_7366.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 477.45184366800163,
+          "y": 1107.9300642347655,
+          "width": 351.95845877641204,
+          "height": 123.89368292458653
+        },
+        {
+          "class": "stikkontakt",
+          "x": 1663.1479629885375,
+          "y": 1099.2863189144455,
+          "width": 161.5547023891727,
+          "height": 86.4374532032
+        }
+      ]
+    },
+    "IMG_7367.jpg": {
+      "path": "input/IMG_7367.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 1550.6366523960778,
+          "y": 1177.0800267973254,
+          "width": 135.59055379091296,
+          "height": 109.48744072405339
+        },
+        {
+          "class": "bryter",
+          "x": 255.31412788288912,
+          "y": 1240.467492479672,
+          "width": 380.8075127744786,
+          "height": 138.2999251251199
+        }
+      ]
+    },
+    "IMG_7368.jpg": {
+      "path": "input/IMG_7368.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 287.0480872807623,
+          "y": 1652.486019414925,
+          "width": 403.88675597293184,
+          "height": 314.05607997162633
+        },
+        {
+          "class": "stikkontakt",
+          "x": 1628.5290981908574,
+          "y": 1381.6486660448986,
+          "width": 129.82074299129954,
+          "height": 121.01243448447985
+        }
+      ]
+    },
+    "IMG_7369.jpg": {
+      "path": "input/IMG_7369.jpg",
+      "bboxes": [
+        {
+          "class": "stikkontakt",
+          "x": 2118.9630161579894,
+          "y": 716.0802763802593,
+          "width": 193.28866178704584,
+          "height": 89.31870164330655
+        },
+        {
+          "class": "bryter",
+          "x": 861.1442618422869,
+          "y": 448.1241714503395,
+          "width": 389.4622289738985,
+          "height": 161.34991264597312
+        }
+      ]
+    },
+    "IMG_7370.jpg": {
+      "path": "input/IMG_7370.jpg",
+      "bboxes": [
+        {
+          "class": "bryter",
+          "x": 1847.7819085761635,
+          "y": 695.9115372995126,
+          "width": 398.1169451733185,
+          "height": 175.75615484650655
+        }
+      ]
+    }
+  }
+}

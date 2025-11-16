@@ -1,0 +1,26 @@
+# Core ML/DL frameworks
+torch>=2.0.0
+torchvision>=0.15.0
+
+# YOLOX dependencies (Apache 2.0 License)
+loguru>=0.7.0
+opencv-python>=4.8.0
+tabulate>=0.9.0
+pycocotools>=2.0.0
+scipy>=1.10.0
+tqdm>=4.65.0
+onnx>=1.14.0
+onnxruntime>=1.15.0
+tensorboard>=2.0.0
+
+# Image processing
+Pillow>=9.0.0
+
+# Data processing
+numpy>=1.24.0
+
+# Configuration files
+PyYAML>=6.0
+
+# Web-based annotation GUI
+Flask>=2.3.0
