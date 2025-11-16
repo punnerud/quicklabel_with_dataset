@@ -1,17 +1,19 @@
 # YOLOX Object Detection - Web-based Annotation & Training
 
-A complete web-based tool for annotating images with bounding boxes and training YOLOX object detection models.
+A complete web-based tool for annotating images with bounding boxes and training YOLOX object detection models. Everything is managed through an intuitive web interface - no code editing required!
 
 **🔓 Apache 2.0 License** - Free for commercial use!
 
 ## Features
 
+- 📁 **Multi-Project Management**: Create and manage multiple annotation projects with separate datasets
 - 🖼️ **Web-based Interface**: Draw bounding boxes directly in your browser
-- 🎯 **YOLOX Training**: Train YOLOX models (Apache 2.0 license) with your annotations
+- 🎯 **GUI-based Training**: Train YOLOX models through the web interface with real-time progress monitoring
 - 🔮 **Live Predictions**: Test your trained model in the annotation interface
 - 📦 **Auto Augmentation**: Mosaic, HSV, and geometric augmentations
-- ⚡ **Fast & Simple**: No complex setup, just annotate and train
+- ⚡ **Fast & Simple**: No complex setup, just create a project, annotate and train
 - 🍎 **Apple Silicon Support**: Automatic MPS acceleration on M1/M2/M3 Macs
+- 🚀 **Background Training**: Train models in background while continuing to annotate
 
 ## Quick Start
 
@@ -26,18 +28,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 2. Add Images
-
-Place your images in the `input/` folder:
-
-```bash
-mkdir -p input
-# Copy your images (.jpg, .jpeg, .png, .bmp) to input/
-```
-
-### 3. Annotate Images
-
-Start the web annotation tool:
+### 2. Start the Application
 
 ```bash
 python app.py
@@ -45,91 +36,90 @@ python app.py
 
 Then open your browser to: **http://localhost:8100**
 
-**Controls:**
-- Select a class using the buttons or number keys (1-5)
-- Click and drag on the image to draw a bounding box
-- Use arrow keys to navigate between images
-- Press Delete to remove selected bbox
-- Auto-saves all annotations
+### 3. Create a Project
 
-### 4. Train YOLOX Model
+1. Click on the **⚙️ Settings** icon (top right)
+2. Click **"+ New Project"**
+3. Enter project name and define your classes (one per line)
+4. Click **"Create Project"**
 
-```bash
-# Train with default settings (300 epochs, YOLOX-S)
-python train.py
+### 4. Add Images to Your Project
 
-# Train with custom settings
-python train.py --epochs 200 --batch-size 16 --img-size 640
-```
+1. In the project settings page, click the **⚙️ gear icon** on your project
+2. Select **"Import Images"**
+3. Choose your images (.jpg, .jpeg, .png, .bmp)
+4. Images will be uploaded to your project
 
-**Model Variants (adjust --depth and --width):**
+**Alternative**: Manually place images in `projects/[project-id]/input/` folder
 
-| Model | depth | width | Parameters | Speed | Use Case |
-|-------|-------|-------|------------|-------|----------|
-| YOLOX-S | 0.33 | 0.50 | 9.0M | ⚡⚡⚡ | **Recommended for most cases** |
-| YOLOX-M | 0.67 | 0.75 | 25.3M | ⚡⚡ | Better accuracy |
-| YOLOX-L | 1.00 | 1.00 | 54.2M | ⚡ | High accuracy |
-| YOLOX-X | 1.33 | 1.25 | 99.1M | 🐌 | Maximum accuracy |
+### 5. Annotate Images
 
-**Training Options:**
-- `--depth`: Model depth multiplier (default: 0.33 for YOLOX-S)
-- `--width`: Model width multiplier (default: 0.50 for YOLOX-S)
-- `--epochs`: Number of training epochs (default: 300)
-- `--batch-size`: Batch size (default: 8, reduce if out of memory)
-- `--img-size`: Input image size (default: 640)
-- `--device`: Device to use (mps, cuda, cpu - auto-detected by default)
+1. Make sure your project is active (green checkmark)
+2. Go back to the main annotation page
+3. Draw bounding boxes by:
+   - Select a class using the buttons or number keys (1-5)
+   - Click and drag on the image to draw a bounding box
+   - Use arrow keys to navigate between images
+   - Press Delete to remove selected bbox
+   - Annotations auto-save
 
-**Example - Train YOLOX-M:**
-```bash
-python train.py --depth 0.67 --width 0.75 --epochs 200 --batch-size 8
-```
+### 6. Train Your Model
 
-### 5. Test Predictions
+1. Go to **Project Settings** (⚙️ icon)
+2. Click the **⚙️ gear icon** on your project
+3. Select **"🚀 Train Model"**
+4. Configure training parameters:
+   - **Epochs**: Number of training iterations (default: 300)
+   - **Batch Size**: Images per batch (default: 4 for YOLOX-M)
+   - **Model Size**: S (faster), M (balanced), or L (accurate)
+   - **Device**: MPS for Apple Silicon, CUDA for NVIDIA, or CPU
+5. Click **"🚀 Start Training"**
+6. Monitor real-time training progress
+7. You can continue labeling while training runs in background!
 
-After training, run the app again:
+### 7. Test Your Model
 
-```bash
-python app.py
-```
+After training completes:
+1. Return to the annotation page
+2. Enable **"Show Predictions"** checkbox
+3. Adjust confidence slider to see your model's predictions
 
-Click the **"Live Detection"** checkbox and adjust the confidence slider to see your model's predictions!
+## Model Variants
+
+Choose the right model size for your use case:
+
+| Model | Parameters | Speed | Accuracy | Use Case |
+|-------|-----------|-------|----------|----------|
+| **YOLOX-S** | 9.0M | ⚡⚡⚡ | Good | Fast inference, limited hardware |
+| **YOLOX-M** | 25.3M | ⚡⚡ | Better | **Recommended for most cases** |
+| **YOLOX-L** | 54.2M | ⚡ | Best | High accuracy requirements |
+
+The model size is automatically detected from your trained model, so you can resume training seamlessly!
 
 ## Project Structure
 
 ```
 .
-├── app.py                      # Web annotation interface
+├── app.py                      # Web annotation & training interface
 ├── train.py                    # YOLOX training script
-├── yolox_dataset.py            # Custom dataset adapter
-├── yolox_inference.py          # YOLOX inference wrapper
 ├── requirements.txt            # Python dependencies
+├── templates/                  # Web UI templates
+│   ├── index.html             # Main annotation interface
+│   ├── projects.html          # Project management
+│   └── train.html             # Training interface
+├── projects/                   # Your projects (auto-created)
+│   └── [project-id]/
+│       ├── input/             # Project images
+│       ├── annotations.json   # Project annotations
+│       └── output/            # Trained models
+│           └── yolox_custom/
+│               ├── best_ckpt.pth    # Best model
+│               └── latest_ckpt.pth  # Latest model
+├── data/
+│   └── projects.json          # Project configurations
 ├── yolox/                      # YOLOX source code (Apache 2.0)
-├── exps/                       # YOLOX experiment configs
-├── input/                      # Place your images here
-├── output/                     # Trained models
-│   └── yolox_custom/
-│       ├── best_ckpt.pth      # Best model checkpoint
-│       └── latest_ckpt.pth    # Latest model checkpoint
-└── data/
-    └── annotations/            # Your annotations (JSON)
-        └── annotations.json
+└── exps/                       # YOLOX experiment configs
 ```
-
-## Classes
-
-Edit the classes in `app.py` (line 30):
-
-```python
-CLASSES = ["bryter", "stikkontakt", "elsparkesykkel", "sluk", "kumlokk"]
-```
-
-Change to your own classes, for example:
-
-```python
-CLASSES = ["person", "car", "bicycle", "dog", "cat"]
-```
-
-⚠️ **Important**: If you change classes, retrain your model!
 
 ## Tips for Best Results
 
@@ -206,14 +196,23 @@ YOLOX achieves competitive performance with YOLOv5/v8 while being completely fre
 
 ## Advanced Usage
 
-### Resume Training
+### Command-Line Training (Optional)
 
-YOLOX automatically saves checkpoints. To resume:
+You can also train from command line if preferred:
 
 ```bash
-# Automatically resumes from latest checkpoint if found
-python train.py --resume
+# Train with default settings
+python train.py
+
+# Custom settings
+python train.py --epochs 200 --batch-size 8 --device mps
 ```
+
+If multiple projects exist, you'll be prompted to select which one to train.
+
+### Resume Training
+
+Training automatically resumes from the latest checkpoint. If you want to start fresh, change the model size in the training interface (this will trigger a warning).
 
 ### Custom Train/Val Split
 
@@ -224,7 +223,7 @@ The dataset is automatically split 80/20 train/val. To modify, edit `yolox_datas
 After training, you can export to ONNX for deployment:
 
 ```bash
-python tools/export_onnx.py --output-name yolox_s.onnx --input exps/default/yolox_s.py --ckpt output/yolox_custom/best_ckpt.pth
+python tools/export_onnx.py --output-name yolox_m.onnx --input exps/default/yolox_m.py --ckpt projects/[project-id]/output/yolox_custom/best_ckpt.pth
 ```
 
 ## License
