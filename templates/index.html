@@ -569,21 +569,11 @@
             });
         }
 
-        // Update URL with current image
-        function updateURL(imageName) {
-            const url = new URL(window.location);
-            url.searchParams.set('image', imageName);
-            window.history.replaceState({}, '', url);
-        }
-
         async function loadImage(index) {
             if (index < 0 || index >= images.length) return;
 
             currentIndex = index;
             const imageName = images[index];
-
-            // Update URL
-            updateURL(imageName);
 
             // Reset selection
             selectedBboxIndex = -1;
